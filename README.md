@@ -42,7 +42,8 @@ Filename must respect the naming convention:
 
 The markdown files must include a normalized header:
 
-``` #json
+```
+#json
 ---
 layout:     post
 title:      "A nice title"
