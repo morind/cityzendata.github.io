@@ -42,14 +42,16 @@ Filename must respect the naming convention:
 
 The markdown files must include a normalized header:
 
-    ---
-    layout:     post
-    title:      "A nice title"
-    subtitle:   "And the explanation thats follows it"
-    date:       2014-06-10 12:00:00
-    author:     "Your name here"
-    header-img: "img/post-bg-01.jpg"  
-    ---    
+```#json
+---
+layout:     post
+title:      "A nice title"
+subtitle:   "And the explanation thats follows it"
+date:       2014-06-10 12:00:00
+author:     "Your name here"
+header-img: "img/post-bg-01.jpg"  
+---    
+```
 
 The image is a header image, suggested sizes are 1900x600 or 1600x500.
 
@@ -57,9 +59,11 @@ The content of the post is written in markdown.
 
 Images should be placed on  a directory inside `img`, following this structure:
 
+
     ──img
       └──YY 
          └──MM
             ├── img01.jpg
             └── img02.jpg
+
 
