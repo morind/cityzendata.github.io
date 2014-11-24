@@ -76,3 +76,9 @@ Images should be placed on  a directory inside `img`, following this structure:
         └── img02.jpg
 ```
 
+### Publish your post
+
+As usual, you should fork the [blog repository](https://bitbucket.org/cityzendata/blog), 
+push to your fork and do a pull request.
+
+
