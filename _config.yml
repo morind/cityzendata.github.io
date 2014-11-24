@@ -1,0 +1,14 @@
+# Site settings
+title: Cityzen Data
+email: contact@cityzendata.com
+description: "Cityzen Data's blog"
+baseurl: "/blog"
+url: "http://cityzendata.com"
+twitter_username: CityzenData
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+permalink: pretty
+paginate: 5
+exclude: ["node_modules"]
