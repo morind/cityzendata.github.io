@@ -2,7 +2,7 @@
 title: Cityzen Data
 email: contact@cityzendata.com
 description: "Cityzen Data's blog"
-baseurl: "/blog"
+baseurl: "/"
 url: "http://cityzendata.com"
 twitter_username: CityzenData
 
