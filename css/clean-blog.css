@@ -4,6 +4,21 @@
  * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+.box {
+  display: inline-block;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px #f5f5f5;
+}
+.translucid_box {
+  display: inline-block;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px #f5f5f5;
+  background-color: #f5f5f5;
+}
 body {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 20px;
@@ -400,4 +415,12 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #0085a1;
+}
+.logo {
+  display: inline-block;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px #f5f5f5;
+  background-color: #f5f5f5;
 }
