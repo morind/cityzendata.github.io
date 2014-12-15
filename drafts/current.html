@@ -4,22 +4,16 @@ description: "Cityzen Data blog"
 header-img: "img/home-bg.jpg"
 ---
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-    </a>
-    <p class="post-meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
-</div>
-<hr>
+{% for post in site.posts %}
+  {% if post.categories contains 'drafts' %}
+    {% if post.url %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endif %}
+  {% endif %}
 {% endfor %}
+
+
+
 
 <!-- Pager -->
 {% if paginator.total_pages > 1 %}
