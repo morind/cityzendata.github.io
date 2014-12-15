@@ -602,10 +602,13 @@
 	},
 	"expanded_folders":
 	[
-		"/home/horacio/cityzendata/git/blog"
+		"/home/horacio/cityzendata/git/blog",
+		"/home/horacio/cityzendata/git/blog/_posts",
+		"/home/horacio/cityzendata/git/blog/img"
 	],
 	"file_history":
 	[
+		"/home/horacio/cityzendata/git/blog/README.md",
 		"/home/horacio/cityzendata/git/webcomponents/metrics-graphics-quantum-widget/app/scripts/app.coffee",
 		"/home/horacio/cityzendata/git/webcomponents/metrics-graphics-quantum-widget/app/index.html",
 		"/home/horacio/cityzendata/git/webcomponents/metrics-graphics-quantum-widget/app/scripts/directives/quantum_old.coffee",
@@ -732,8 +735,7 @@
 		"/home/horacio/cityzendata/git/Docker/quasar/scripts/start.sh",
 		"/home/horacio/cityzendata/git/Docker/quasar/scripts/quasar.ini",
 		"/home/horacio/cityzendata/git/Docker/quasar/conf/quasar.ini",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9150-function_NPDF.html.md",
-		"/home/horacio/cityzendata/git/quantum_js/scripts/web-server.js"
+		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9150-function_NPDF.html.md"
 	],
 	"find":
 	{
