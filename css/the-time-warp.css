@@ -222,6 +222,9 @@ hr.small {
   .intro-header .main-heading {
     padding: 20px 0;
   }
+  .intro-header .main-heading h1 {
+    padding-bottom: 20px;
+  }
 }
 .intro-header .post-heading h1 {
   font-size: 35px;
