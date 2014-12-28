@@ -199,13 +199,22 @@ hr.small {
 			}
 		}
 	}
-  
-  .logo {
-    margin-top: 25px;
-  }
-  .main-heading {    
+  .main-heading {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-end;    
+    div, h1 {
+      margin-left: 50px;
+      margin-right: 50px;
+    }
     h1 {
       font-family: 'Comfortaa', cursive;
+    }
+    padding: 50px 0 10px;
+    //color: white;
+    @media only screen and (min-width: 768px) {
+      padding: 20px 0;
     }
   }
 	.post-heading {

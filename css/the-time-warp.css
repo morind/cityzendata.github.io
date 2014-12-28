@@ -203,11 +203,25 @@ hr.small {
     font-weight: normal;
   }
 }
-.intro-header .logo {
-  margin-top: 25px;
+.intro-header .main-heading {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 50px 0 10px;
+}
+.intro-header .main-heading div,
+.intro-header .main-heading h1 {
+  margin-left: 50px;
+  margin-right: 50px;
 }
 .intro-header .main-heading h1 {
   font-family: 'Comfortaa', cursive;
+}
+@media only screen and (min-width: 768px) {
+  .intro-header .main-heading {
+    padding: 20px 0;
+  }
 }
 .intro-header .post-heading h1 {
   font-size: 35px;
