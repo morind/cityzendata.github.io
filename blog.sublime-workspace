@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"component",
+				"web-component"
+			],
+			[
+				"teachers",
+				"teachers3"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
 				"Trap",
 				"Trappiste"
 			],
@@ -459,6 +471,46 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/horacio/git/polymer/elements/flip-card/.bowerrc",
+			"settings":
+			{
+				"buffer_size": 25,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/horacio/git/polymer/elements/flip-card/bower.json",
+			"settings":
+			{
+				"buffer_size": 528,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/horacio/git/polymer/elements/flip-card/flip-card.html",
+			"settings":
+			{
+				"buffer_size": 2982,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/horacio/git/polymer/elements/flip-card/README.md",
+			"settings":
+			{
+				"buffer_size": 635,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/horacio/git/polymer/elements/flip-card/demo.html",
+			"settings":
+			{
+				"buffer_size": 890,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -602,12 +654,53 @@
 	},
 	"expanded_folders":
 	[
-		"/home/horacio/cityzendata/git/blog",
-		"/home/horacio/cityzendata/git/blog/_posts",
-		"/home/horacio/cityzendata/git/blog/img"
+		"/home/horacio/git/polymer",
+		"/home/horacio/git/polymer/elements",
+		"/home/horacio/git/polymer/elements/flip-card",
+		"/home/horacio/git/polymer/elements/test-so",
+		"/home/horacio/git/polymer/elements/test-so/test",
+		"/home/horacio/git/polymer/elements/test-so2",
+		"/home/horacio/git/presentations/Polymer",
+		"/home/horacio/git/presentations/Polymer/polymer-devfest",
+		"/home/horacio/git/presentations/Polymer/polymer-devfest/step-5"
 	],
 	"file_history":
 	[
+		"/home/horacio/git/polymer/elements/core-icons/core-icons.html",
+		"/home/horacio/git/polymer/elements/core-icon/core-icon.html",
+		"/home/horacio/git/polymer/elements/flip-card/bower.json",
+		"/home/horacio/git/polymer/elements/test-so2/demo3.html",
+		"/home/horacio/git/polymer/elements/test-so2/demo4.html",
+		"/home/horacio/git/polymer/elements/test-so2/demo5.html",
+		"/home/horacio/git/polymer/elements/seed-element-master/bower.json",
+		"/home/horacio/git/polymer/elements/seed-element-master/.bowerrc",
+		"/home/horacio/git/polymer/elements/test-so2/component3.html",
+		"/home/horacio/git/polymer/elements/test-so2/demo.html",
+		"/home/horacio/git/polymer/elements/test-so2/seed-element.html",
+		"/home/horacio/git/polymer/elements/test-so2/demo2.html",
+		"/home/horacio/git/polymer/elements/test-so2/my-core-menu.html",
+		"/tmp/haproxy_einstein_script.mc2",
+		"/home/horacio/git/polymer/elements/test-so2/index.html",
+		"/home/horacio/git/polymer/elements/test-so/yo-dialog.html",
+		"/home/horacio/git/polymer/elements/test-so/dialog-ken.css",
+		"/home/horacio/git/polymer/elements/test-so/yo-loader.html",
+		"/home/horacio/git/polymer/elements/test-so/test/index.html",
+		"/home/horacio/git/polymer/elements/test-so/test/yo-dialog.html",
+		"/home/horacio/cityzendata/git/blog/_config.yml",
+		"/home/horacio/cityzendata/git/blog/less/clean-blog.less",
+		"/home/horacio/cityzendata/git/blog/robots.txt",
+		"/home/horacio/cityzendata/git/blog/_layouts/page.html",
+		"/home/horacio/cityzendata/git/blog/index.html",
+		"/home/horacio/cityzendata/git/blog/_posts/2014-12-15-lorem-ipsum.md",
+		"/home/horacio/cityzendata/git/website/app/index.html",
+		"/home/horacio/cityzendata/git/website/app/less/main.less",
+		"/home/horacio/cityzendata/git/blog/less/mixins.less",
+		"/home/horacio/cityzendata/git/blog/css/clean-blog.css",
+		"/home/horacio/cityzendata/git/blog/drafts/current.html",
+		"/home/horacio/cityzendata/git/blog/_includes/head.html",
+		"/home/horacio/cityzendata/git/blog/drafts/_posts/2014-12-15-ceci-est-un-test.md",
+		"/home/horacio/cityzendata/git/blog/less/variables.less",
+		"/home/horacio/cityzendata/git/blog/_includes/nav.html",
 		"/home/horacio/cityzendata/git/blog/README.md",
 		"/home/horacio/cityzendata/git/webcomponents/metrics-graphics-quantum-widget/app/scripts/app.coffee",
 		"/home/horacio/cityzendata/git/webcomponents/metrics-graphics-quantum-widget/app/index.html",
@@ -700,46 +793,11 @@
 		"/home/horacio/git/enib/angular-bar/app/beers/TrappistesRochefort8.json",
 		"/home/horacio/git/enib/angular-bar/app/beers/TrappistesRochefort10.json",
 		"/home/horacio/git/enib/angular-bar/app/beers/AffligemDubbel.json",
-		"/home/horacio/git/enib/angular-bar/app/beers/AffligemBlond.json",
-		"/home/horacio/git/enib/angular-bar/app/beers/StBernardusPater6.json",
-		"/home/horacio/git/enib/angular-bar/app/beers/StBernardusAbt12.json",
-		"/home/horacio/git/enib/angular-bar/app/beers/ChimayRed.json",
-		"/home/horacio/git/enib/angular-bar/app/beers/ChimayTriple.json",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/30-logic-structures/function_IFT.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/30-logic-structures/function_IFTE.html.md",
-		"/home/horacio/git/enib/angular-phonecat/app/index.html",
-		"/tmp/beers.json",
-		"/home/horacio/git/enib/angular-bar/step-03/beers/beers.json",
-		"/home/horacio/git/enib/angular-bar/step-02/beers/beers.json",
-		"/home/horacio/git/enib/angular-bar/step-01/beers/beers.json",
-		"/home/horacio/git/enib/angular-phonecat/app/beers/beers.json",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/15-standalone/00-standalone.html.md.eco",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/00-functions.html.md.eco",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9210-function_LT.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9211-function_GT.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9212-function_LE.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9213-function_GE.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/00-math.html.md.eco",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9203-function_MUL.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9204-function_DIV.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9205-function_MOD.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9207-function_EQ.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9209-function_NE.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9208-function_ALMOSTEQ.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9201-function_ADD.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9202-function_SUB.html.md",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9206-function_POW.html.md",
-		"/home/horacio/cityzendata/git/webcomponents/quantum/app/scripts/widgets/treewidget.coffee",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/50-gts/840-function_TICKINDEX.html.md",
-		"/home/horacio/cityzendata/git/Docker/quasar/Dockerfile",
-		"/home/horacio/cityzendata/git/Docker/quasar/scripts/start.sh",
-		"/home/horacio/cityzendata/git/Docker/quasar/scripts/quasar.ini",
-		"/home/horacio/cityzendata/git/Docker/quasar/conf/quasar.ini",
-		"/home/horacio/cityzendata/git/doc/src/documents/030-einstein/30-functions/12-math/9150-function_NPDF.html.md"
+		"/home/horacio/git/enib/angular-bar/app/beers/AffligemBlond.json"
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -754,6 +812,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"\\.serif;",
+			".serif",
+			"lora",
 			"gtsStack",
 			".add",
 			"#.*",
@@ -878,10 +939,7 @@
 			"bcn03",
 			"com.cityzenscience.com",
 			"^([^\\t]*)\\t([^\\t]*)\\t([^\\t]*)\\t([^\\t]*)\\t[^\\t]*\\t[^\\t]*\\t[^\\t]*\\t(.*)",
-			"^([0-9]*/[^/]*/)[^ ]*",
-			"^([^\\t]*)\\t([^\\t]*)\\t([^\\t]*)\\t([^\\t]*)\\t[^\\t]*\\t[^\\t]*\\t[^\\t]*\\t(.*)",
-			"1 Billet simple Commande gratuite",
-			"Order [0-9-]*.*\\n"
+			"^([0-9]*/[^/]*/)[^ ]*"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -889,6 +947,8 @@
 		"regex": true,
 		"replace_history":
 		[
+			".sans-serif;",
+			".sans-serif",
 			".mul",
 			"",
 			",\\n",
@@ -1014,9 +1074,7 @@
 			"lat:\\1, lon:\\2, value: ",
 			"\\1,\\2",
 			"gps.speed{id=\\1,source=\"ASSE\",type=\"training\"}",
-			"",
-			"\"v\":\\[\\],",
-			"/opt/java7"
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1029,13 +1087,166 @@
 		{
 			"follow_symlinks": true,
 			"path": "/home/horacio/cityzendata/git/blog"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/home/horacio/cityzendata/git/website"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/home/horacio/git/polymer"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/home/horacio/git/presentations/Polymer"
 		}
 	],
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/horacio/git/polymer/elements/flip-card/.bowerrc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25,
+								25
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/horacio/git/polymer/elements/flip-card/bower.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 528,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								401,
+								401
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/horacio/git/polymer/elements/flip-card/flip-card.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2982,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								114,
+								114
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/horacio/git/polymer/elements/flip-card/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 635,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								635,
+								635
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/horacio/git/polymer/elements/flip-card/demo.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								526,
+								526
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1078,10 +1289,14 @@
 	{
 		"height": 0.0
 	},
+	"output.markdown":
+	{
+		"height": 124.0
+	},
 	"project": "",
 	"replace":
 	{
-		"height": 50.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":

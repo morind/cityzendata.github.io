@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Lorem ipsum"
-subtitle:   "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+subtitle:   "Lorem ipsum dolor sit amet, consectetur elit."
 date:       2014-06-10 12:00:00
 author:     "Ipsum Loren"
 header-img: "img/post-bg-01.jpg"

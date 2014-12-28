@@ -1,7 +1,8 @@
 # Site settings
-title: Cityzen Data
+title: The Time Warp
 email: contact@cityzendata.com
-description: "Time Warp"
+description: The Time Warp
+filename: the-time-warp
 baseurl: ""
 url: "http://cityzendata.com"
 twitter_username: CityzenData
