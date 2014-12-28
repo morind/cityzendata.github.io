@@ -160,18 +160,15 @@ hr.small {
 }
 .intro-header .site-heading,
 .intro-header .post-heading,
-.intro-header .page-heading {
+.intro-header .page-heading,
+.intro-header .main-heading {
   padding: 30px 0 10px;
-}
-.intro-header .site-heading .logo,
-.intro-header .post-heading .logo,
-.intro-header .page-heading .logo {
-  margin-top: 25px;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
   .intro-header .post-heading,
-  .intro-header .page-heading {
+  .intro-header .page-heading,
+  .intro-header .main-heading {
     padding: 20px 0;
   }
 }
@@ -201,6 +198,12 @@ hr.small {
     font-size: 50px;
     font-weight: normal;
   }
+}
+.intro-header .main-heading .logo {
+  margin-top: 25px;
+}
+.intro-header .main-heading h1 {
+  font-family: 'Comfortaa', cursive;
 }
 .intro-header .post-heading h1 {
   font-size: 35px;
