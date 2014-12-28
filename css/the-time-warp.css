@@ -161,7 +161,12 @@ hr.small {
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
-  padding: 20px 0 20px;
+  padding: 30px 0 10px;
+}
+.intro-header .site-heading .logo,
+.intro-header .post-heading .logo,
+.intro-header .page-heading .logo {
+  margin-top: 25px;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
@@ -176,8 +181,7 @@ hr.small {
 }
 .intro-header .site-heading h1,
 .intro-header .page-heading h1 {
-  color: #999;
-  margin-top: 0;
+  color: #808080;
   font-size: 50px;
   font-weight: normal;
 }
@@ -193,7 +197,9 @@ hr.small {
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading h1,
   .intro-header .page-heading h1 {
+    color: #808080;
     font-size: 50px;
+    font-weight: normal;
   }
 }
 .intro-header .post-heading h1 {
@@ -417,12 +423,4 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #0085a1;
-}
-.logo {
-  display: inline-block;
-  padding: 20px 30px;
-  margin-bottom: 30px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px #f5f5f5;
-  background-color: #f5f5f5;
 }

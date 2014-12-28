@@ -166,7 +166,10 @@ hr.small {
 	.site-heading,
 	.post-heading,
 	.page-heading {
-		padding: 20px 0 20px;
+    .logo {
+      margin-top: 25px;
+    }
+		padding: 30px 0 10px;
 		//color: white;
 		@media only screen and (min-width: 768px) {
 			padding: 20px 0;
@@ -176,8 +179,7 @@ hr.small {
 	.page-heading {
 		text-align: left;
 		h1 {
-      color: #999;
-			margin-top: 0;
+      color: @gray;
 			font-size: 50px;
       font-weight: normal;
 		}
@@ -191,7 +193,9 @@ hr.small {
 		}
 		@media only screen and (min-width: 768px) {
 			h1 {
+        color: @gray;
 				font-size: 50px;
+        font-weight: normal;
 			}
 		}
 	}
@@ -463,10 +467,4 @@ img::-moz-selection {
 
 body {
 	webkit-tap-highlight-color: @brand-primary;
-}
-
-
-
-.logo {
-  .translucid_box;
 }
