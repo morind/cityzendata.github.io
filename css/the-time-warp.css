@@ -212,7 +212,7 @@ hr.small {
 }
 .intro-header .main-heading .blog-logo,
 .intro-header .main-heading .blog-title {
-  margin-right: 50px;
+  margin-right: 30px;
 }
 .intro-header .main-heading h1 {
   font-family: 'Comfortaa', cursive;
@@ -222,7 +222,7 @@ hr.small {
     padding: 20px 0;
   }
   .intro-header .main-heading h1 {
-    padding-bottom: 17px;
+    padding-bottom: 12px;
   }
 }
 .intro-header .post-heading h1 {
