@@ -2,12 +2,12 @@
 layout:     post
 title:      "It's astrounding, time is fleeting..."
 subtitle:   "introducing The Time Warp, Cityzen Data's blog"
-date:       2014-12-16 12:00:00
+date:       2015-01-05 12:00:00
 author:     "hbs"
 header-img: "img/post-bg-01.jpg"
 ---
 
-The last 18 months have been both exhilarating and frustrating. Exhilarating because founding a startup is putting you in the (hyper) fast lane and from the day you start you live your life at ludicrous speed. But frustrating because working in stealth mode limits the amount of information you give to the outside world and the greatness and importance of what you do are only known by a few insiders. But then one day you consider that the market has matured and that your product is sufficiently advanced to retain an advantage despite stepping out of the shadow.
+The last 18 months have been both exhilarating and frustrating. Exhilarating because founding a startup is putting you in the (hyper) fast lane and from the day you start you live your life at ludicrous speed. But frustrating because working in stealth mode limits the amount of information you give to the outside world and the greatness and importance of what you do are only known to a few insiders. But then one day you consider that the market has matured and that your product is sufficiently advanced to retain an advantage despite stepping out of the shadow.
 
 For Cityzen Data this day has come and the whole team is delighted to be able to (at last) post about everything they've been working on. This blog will be the home of those posts, we've dubbed it _The Time Warp_, in reference to multiple things, Time which is the center of our interests, Warp which is the name of our product, and of course the <a href="https://www.youtube.com/watch?v=umj0gu5nEGs">song</a> from the <a href="http://en.wikipedia.org/wiki/The_Rocky_Horror_Picture_Show">Rocky Horror Picture Show</a> which we invite you to experience at least once in your lifetime!
 
@@ -15,4 +15,6 @@ Let's go back in time so you can understand where we come from and what we've be
 
 Along the many posts to come, the various members of our team will deep dive into what our platform has to offer. We hope you will be following us regularly.
 
-Mathias Herberts - cofounder & CTO
+In the mean time, on behalf of everyone at Cityzen Data, I wish you the very best for 2015.
+
+Mathias Herberts - cofounder & CTO - <a href="http://twitter.com/herberts">@herberts</a>
