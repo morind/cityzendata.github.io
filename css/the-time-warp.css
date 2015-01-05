@@ -1,6 +1,6 @@
 /*!
  * The Time Warp v1.0.0 (http://startbootstrap.com)
- * Copyright 2014 Start Bootstrap
+ * Copyright 2015 Start Bootstrap
  * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
  */
 
@@ -29,7 +29,7 @@ p {
   margin: 30px 0;
 }
 p a {
-  text-decoration: underline;
+  text-decoration: none;
 }
 h1,
 h2,
@@ -41,11 +41,13 @@ h6 {
   font-weight: 800;
 }
 a {
-  color: #404040;
+  color: #0085a1;
+  text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #0085a1;
+  color: #428bca;
+  text-decoration: none;
 }
 a img:hover,
 a img:focus {
@@ -115,6 +117,26 @@ hr.small {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
+  .navbar-custom.is-post {
+    position: fixed;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .navbar-custom.is-post .navbar-brand {
+    color: #404040;
+  }
+  .navbar-custom.is-post .navbar-brand:hover,
+  .navbar-custom.is-post .navbar-brand:focus {
+    color: #0085a1;
+  }
+  .navbar-custom.is-post .nav li a {
+    color: #404040;
+  }
+  .navbar-custom.is-post .nav li a:hover,
+  .navbar-custom.is-post .nav li a:focus {
+    color: #0085a1;
+  }
   .navbar-custom.is-fixed {
     /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
@@ -146,6 +168,11 @@ hr.small {
     -ms-transform: translate3d(0, 100%, 0);
     -o-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .separator {
+    height: 61px;
   }
 }
 .intro-header {
