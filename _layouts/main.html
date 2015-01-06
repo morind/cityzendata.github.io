@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body>
+
+    {% include nav-index.html %}
+
+
+
+    <!-- Page Header -->
+    <header class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="main-heading">
+                  <div class="blog-logo">
+                    <img src="{{ site.baseurl }}/img/logo-500px.png" width="200" alt="Cityzen Data">
+                  </div> 
+                  <h1 class="blog-title">{{ page.description }}</h1>
+                </div>
+              </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    {% include footer.html %}
+
+</body>
+
+</html>
