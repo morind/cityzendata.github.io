@@ -2,7 +2,7 @@
 layout:     post
 title:      "It's astounding, time is fleeting..."
 subtitle:   "introducing The Time Warp, Cityzen Data's blog"
-date:       2015-01-05 12:00:00
+date:       2015-01-05 14:00:00Z
 author:     "hbs"
 header-img: "img/post-bg-01.jpg"
 ---
