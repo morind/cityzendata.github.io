@@ -10,9 +10,19 @@ layout: default
                 <div class="post-heading">
                     <h1>{{ page.title }}</h1>
                     {% if page.subtitle %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                      <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% endif %}
-                    <span class="meta">Posted by {{ page.author }} on {{ page.date | date: "%B %-d, %Y" }}</span>
+
+                    {% if page.author %}
+                      {% assign author = site.authors[page.author] %}
+                      <span class="meta">
+                        Posted by 
+                        <a class="twitter" href="https://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a> 
+                        on {{ page.date | date: "%B %-d, %Y" }}
+                      </span>
+                    {% endif %}  
+
+                   
                 </div>
             </div>
         </div>
