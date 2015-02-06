@@ -20,9 +20,9 @@ We had thought about presenting some user cases, but it seemed to us that in CES
 
 After some brainstorming, the idea of **#color** began to take shape. We would have a physical control panel in one side, and a orb in another, and visitors could change the color of the orb by playing with the buttons on the control panel. Easy enough, everybody would think... until we show them that the control panel and the orb aren't connected, they interact with the Cityzen Data platform, the control panel by pushing user chosen color and the orb by reading it and changing its light color accordingly.
 
-With this first part of the experiment, we would be able to show the potential of our platform to act as a hub for home automation, but it wouldn't reveal its possibilities in data analytics, and how this analytics capabilities allows to push way further than simple command-and-control home automation. So we decided to an online component with several widgets showing different analytics on the colors that the CES attendees have selected. These widget should be simple visualization blocks, with all the analytics done in the platform.
+With this first part of the experiment, we would be able to show the potential of our platform to act as a hub for home automation, but it wouldn't reveal its possibilities in data analytics, and how this analytics capabilities allows to push way further than simple command-and-control home automation. To do it, we chose to code an online component with several widgets showing different analytics on the colors that the CES attendees have selected. These widget should be simple visualization blocks, with all the analytics done in the platform.
 
-So with these ideas in mind, we began to craft our **#colors*** demo...
+So with these ideas in mind, we began to craft our **#color** demo...
 
 <div class="image"><img src="{{ site.url }}/img/behind-CES-colors-00.jpg"  alt="Behind the colors of the CES"></div>
 
