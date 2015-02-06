@@ -17,7 +17,21 @@ header-img: "img/home-bg.jpg"
             </h3>
             {% endif %}
         </a>
-        <p class="post-meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
+
+
+
+        {% if post.author %}
+          {% assign author = site.authors[post.author] %}
+
+          <span class="meta">
+            Posted by 
+            <a class="twitter" href="https://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a> 
+            on {{ post.date | date: "%B %-d, %Y" }}
+          </span>
+        {% else %}
+           <span class="meta">Posted on {{ post.date | date: "%B %-d, %Y" }}</span>
+        {% endif %}  
+
     </div>
     <hr>
   {% endunless %}
