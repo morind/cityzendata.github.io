@@ -20,11 +20,7 @@ Using ruby gems:
 gem install jekyll
 ```
 
-In debian/ubuntu:
-
-```text
-sudo apt-get install jekyll
-```
+*Note: the version of Jekyll on Ubuntu repositories **isn't up todate** and shouldn't be used*
 
 
 ### Development mode
@@ -32,7 +28,21 @@ sudo apt-get install jekyll
 To serve the blog in preview mode, use:
 
 ```text
-jekyll serve --watch
+jekyll serve
+```
+The preview mode automatically updates after any modification.
+
+
+To build the static version of the blog, use:
+
+```text
+jekyll build
+```
+
+If you want it to rebuild the static site after each modification, add the `--watch`flag:
+
+```text
+jekyll build --watch
 ```
 
 In *watch* mode, Jekyll will scan the source file and re-generate the blog when files changes.    
