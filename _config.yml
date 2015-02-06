@@ -7,6 +7,7 @@ filename: the-time-warp
 baseurl: ""
 url: "http://blog.cityzendata.com"
 twitter_username: CityzenData
+pygments: true
 
 # Build settings
 markdown: kramdown
@@ -14,3 +15,26 @@ highlighter: pygments
 permalink: pretty
 paginate: 5
 exclude: ["node_modules"]
+
+authors:
+  horacio:
+    display_name: Horacio Gonzalez
+    gravatar: 97583a8c8a78c58ff8d2ff2bada754d7
+    email: horacio.gonzalez@cityzendata.com
+    web: http://blog.cityzendata.com
+    twitter: LostInBrittany
+    github: LostInBrittany
+    gplus: +LostInBrittany
+  seb:
+    display_name: Sébastien Lambour
+    gravatar: 8d5d13d525423f114bb307f664ba5bbc
+    email: sebastien.lambour@cityzendata.com
+    web: http://blog.cityzendata.com
+    twitter: FinistSeb
+    github: slambour
+    gplus: +SébastienLambour29
+  hbs:
+    display_name: Mathias Herberts
+    email: mathias.herbertsr@cityzendata.com
+    web: http://blog.cityzendata.com
+    twitter: herberts
