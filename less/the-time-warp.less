@@ -274,7 +274,7 @@ hr.small {
 			font-weight: 300;
 			font-size: 20px;
 			a {
-				color: white;
+				//color: white;
 			}
 		}
 		@media only screen and (min-width: 768px) {
@@ -520,4 +520,27 @@ img::-moz-selection {
 
 body {
 	webkit-tap-highlight-color: @brand-primary;
+}
+
+.image {
+
+  text-align: center;
+
+  img {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+  }
+
+  &.small {
+    img {
+      max-width: 380px;
+      height: auto;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content:center;
 }

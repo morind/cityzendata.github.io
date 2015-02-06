@@ -273,9 +273,6 @@ hr.small {
   font-weight: 300;
   font-size: 20px;
 }
-.intro-header .post-heading .meta a {
-  color: white;
-}
 @media only screen and (min-width: 768px) {
   .intro-header .post-heading h1 {
     font-size: 55px;
@@ -473,4 +470,20 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #0085a1;
+}
+.image {
+  text-align: center;
+}
+.image img {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+.image.small img {
+  max-width: 380px;
+  height: auto;
+}
+.flex {
+  display: flex;
+  justify-content: center;
 }
