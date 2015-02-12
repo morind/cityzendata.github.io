@@ -4,7 +4,7 @@ email: contact@cityzendata.com
 owner: Cityzen Data
 description: The Time Warp
 filename: the-time-warp
-baseurl: ""
+baseurl: "http://blog.cityzendata.com"
 url: "http://blog.cityzendata.com"
 twitter_username: CityzenData
 pygments: true
