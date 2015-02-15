@@ -18,6 +18,10 @@ layout: default
                       <span class="meta">
                         Posted by 
                         <a class="twitter" href="https://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a> 
+                        {% if page.author2 %}
+                          {% assign author2 = site.authors[page.author2] %}
+                          and <a class="twitter" href="https://twitter.com/{{ author2.twitter }}">{{ author2.display_name }}</a> 
+                        {% endif %} 
                         on {{ page.date | date: "%B %-d, %Y" }}
                       </span>
                     {% endif %}  
@@ -42,12 +46,12 @@ layout: default
                 <ul class="pager">
                     {% if page.previous.url %}
                     <li class="previous">
-                        <a href="{{ site.baseurl }}/{{page.previous.url}}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a> 
+                        <a href="{{ site.baseurl }}{{page.previous.url}}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a> 
                     </li>
                     {% endif %} 
                     {% if page.next.url %}
                     <li class="next">
-                        <a href="{{ site.baseurl }}/{{page.next.url}}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+                        <a href="{{ site.baseurl }}{{page.next.url}}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
                     </li>
                     {% endif %} 
                 </ul>
