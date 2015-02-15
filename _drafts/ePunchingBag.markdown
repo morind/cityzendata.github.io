@@ -25,8 +25,6 @@ In order to record the acceleration, we used a 3 axis numeric accelerometer link
 *Crédit photo [Nicolas Ollier](https://twitter.com/nikko2foo)*
 
 
-
-
 ## Part two : Smile you’re being filmed ##
 
 Each Startuper had a badge with a barcode. Next to the ePunchingBag a barcode scanner was linked to the Raspberry PI. Each valid barcode scan launch a video record of 8 seconds, time good enough to hit one or several times in the ePunchingBag
@@ -49,3 +47,4 @@ The [demo](https://api0.cityzendata.net/widgets/punchingball/) was build with [P
 ![ePunchingBag team](/img/ePunchingBag-01_640px.jpg)
 
 *The ePunchingBag team and friends*
+
