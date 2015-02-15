@@ -4,7 +4,7 @@ email: contact@cityzendata.com
 owner: Cityzen Data
 description: The Time Warp
 filename: the-time-warp
-baseurl: "http://blog.cityzendata.com"
+baseurl: ""
 url: "http://blog.cityzendata.com"
 twitter_username: CityzenData
 pygments: true
@@ -38,3 +38,9 @@ authors:
     email: mathias.herbertsr@cityzendata.com
     web: http://blog.cityzendata.com
     twitter: herberts
+  lpr:
+    display_name: Ludwine Probst
+    email: ludwine.probst@cityzendata.com
+    web: http://blog.cityzendata.com
+    twitter: nivdul
+
