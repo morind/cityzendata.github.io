@@ -21,7 +21,7 @@ At this stage of the project, we hoped to collect a measure of the force of each
 
 ## Part one : Hack a Punching ball ##
 
-The objective was to get a measure of the hitting strength by measuring the acceleration of the punching bag, so our first task was set up a way to record that acceleration. 
+The objective was to get a measure of the hitting strength by measuring the acceleration of the punching bag, so our first task was to set up a way to record that acceleration. 
 
 In order to record the acceleration, we used a 3 axis numeric accelerometer linked via I2C to an Arduino Nano. The accelerometer gave us the 3D acceleration vector, and by calculating its norm, we could have the acceleration we needed. The Arduino get the raw data from the accelerometer, compute its norm and send it via serial on USB to a Raspberry PI.  This one acts as a gateway, sending directly all the received data on USB to the Cityzen Data platform via HTTP.
 
@@ -55,13 +55,13 @@ The [demo](https://api0.cityzendata.net/widgets/punchingball/elements/czd-punch/
 
 ## The technical side ##
 
-The brain of the ePunchingBag was composed two Raspberry Pi computers. The first of them was connected to the Arduino Nano to receive the norm of the acceleration and send the data as a time series to the Cityzen Data platform. The second Raspberry Pi controlled the user identification (via the barcode reading) and the video capture (using the Pi camera) and its upload to YouTube. It also took the user id and the YouTube id of the video, and sends them to the Cityzen Data platform as two time series (user and video ids).
+The brain of the ePunchingBag was composed of two Raspberry Pi computers. The first of them was connected to the Arduino Nano to receive the norm of the acceleration and send the data as a time series to the Cityzen Data platform. The second Raspberry Pi controlled the user identification (via the barcode reading) and the video capture (using the Pi camera) and its upload to YouTube. It also took the user id and the YouTube id of the video, and sent them to the Cityzen Data platform as two time series (user and video ids).
 
 So in the platform we have three independent time series: the punching-bag acceleration, the users id and the video id.
 
 ![the time-series](/img/ePunchingBag-timeseries-01.png)
 
-The app used to display the data needed to be as simple as possible, it didn't need to deal with the complexity of the three time series, or with finding a way to transform the acceleration time-series into a score. Fortunately for us, the Cityzen Data platform shines in this kind of tasks, we only needed to prepare a small Einstein script to do it in the platform and get back to the application a nice JSON ready to be used. 
+The app used to display the data needed to be as simple as possible. It didn't need to deal with the complexity of the three time series, or with finding a way to transform the acceleration time-series into a score. Fortunately for us, the Cityzen Data platform shines in this kind of tasks. We only needed to prepare a small Einstein script to do it in the platform and get back to the application a nice JSON ready to be used. 
 
 The application sends the Einstein script to the platform, that executes it and gives back to the app the data it needs.  As we wanted to get a score for each punch sequence, we decided to calculate the integral of the acceleration series to have a measure of its energy, and we give back the last point of this integral as the energy score of the sequence. Here you have the Einstein script used.If you are not familiar with our platform, it can seem difficult to understand, but believe me, the learning curve is rather smooth and quick. 
 
@@ -107,7 +107,7 @@ The application sends the Einstein script to the platform, that executes it and 
     $measure 
 
 
-For each punch sequence, the Einstein script gave back to our application the used id, the YouTube video id, the acceleration for the sequence and its energy score. That info and some Polymer components, and the app was ready to show the fun of the ePunchinBag.
+For each punch sequence, the Einstein script gave back to our application the user id, the YouTube video id, the acceleration for the sequence and its energy score. That info, some Polymer components and the app were ready to show the fun of the ePunchinBag.
 
 <iframe width="640" height="360" src="https://www.youtube.com/embed/m4bAZX2LP8A" frameborder="0" allowfullscreen></iframe>
 
