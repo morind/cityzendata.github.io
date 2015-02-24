@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "ePunchingBag"
-subtitle:   "a connected experience for the Startup Weekend Brest"
+subtitle:   "A connected experience for the Startup Weekend Brest"
 author:     "seb"
 author2:    "horacio"
 ---
