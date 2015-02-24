@@ -491,7 +491,7 @@ body {
   text-align: justify;
 }
 
-.post p img {
+.post p img, iframe {
   display:block;
   margin:auto;
 }
