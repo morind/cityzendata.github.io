@@ -490,3 +490,8 @@ body {
 .post {
   text-align: justify;
 }
+
+.post p img, iframe {
+  display:block;
+  margin:auto;
+}
