@@ -194,7 +194,7 @@ MACROMAPPER
 As you can see on the graphic above, the power curve quality is widely better than the previous graphic.
 
 #### Einstein code ####
-This part is more compilcated, we have to apply different mappers. 
+This part is more complicated, we have to apply different mappers. 
 Firstly, extract ticks (timestamps)
 
     mapper.tick
@@ -230,4 +230,4 @@ Electric energy disaggregation is one the most difficult analysis challenge, it 
 
 If you plan to make data analysis with impulse sensor, considere timestamp as one of the most accurate data.
 
-Please remember than saving the timestamp of each impulse will give you precious informations.
+Please remember that saving the timestamp of each impulse will give you precious informations.
