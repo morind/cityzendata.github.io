@@ -46,7 +46,7 @@ bucketizer.first
 </czd-quantumviz>
 
 #### Einstein code #####
-In this case bucketise is usefull to reduce the number of points displayed in the browser.
+In this case bucketize is usefull to reduce the number of points displayed in the browser.
 
     bucketizer.first // take the first value in the bucket
     0 
@@ -136,7 +136,7 @@ We don’t have directly this information but we can rebuild it from the impulse
 
 ## Part two : extract data from the timestamp ##
 
-Remember that each impulse are timestamped, so delta time between to 2 impulses give us how much time we took for consume 1WH.
+Remember that each impulse are timestamped, so delta time between two impulses give us how much time we took for consume 1WH.
 We can simply deduce power with the division below.
 
     1WH / DeltaT = Power
@@ -227,7 +227,7 @@ Thridly, use a macro mapper (custom mapper) for compute the power
 
 ## Conclusion ##
 
-Electric energy disaggregation is one the most difficult analysis challenge, it is not the purpose of this paper.
+Electric energy disaggregation is one of the most difficult analysis challenge, it is not the purpose of this paper.
 
 If you plan to make data analysis with impulse sensor, considere timestamp as one of the most accurate data.
 
