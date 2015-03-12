@@ -231,4 +231,4 @@ Electric energy disaggregation is one the most difficult analysis challenge, it 
 
 If you plan to make data analysis with impulse sensor, considere timestamp as one of the most accurate data.
 
-Please remember that saving timestamp of each impulse will give you precious informations.
+Please remember that saving the timestamp of each impulse will give you precious informations.
