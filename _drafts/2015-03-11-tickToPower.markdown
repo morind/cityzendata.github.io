@@ -18,6 +18,8 @@ I take as example one DIY impulse reader from an electricity meter installed int
 Each impulse represents 1WH consumed. For each impulse we store the timestamp related. 
 The sensor also acts as an accumulator. The global trend (day by day) looks like that.
 
+All graphics in this article uses Cityzen Data visualization widget QuantumViz, a Polymer webcomponent designed for visualizing data from Cityzen Data platform.
+
 <czd-quantumviz width="500" height="400"> 
 'mrKvnoIttxEpVO5IxbsWvfjkg6gzqTMiF5a7JeHIepZu440snQEAneCUGAZ4JKKOVOLyD7evxGrWkfOcMh1lKRBoqptPjwbB4SOhT_j1ufAg4k119Ka.y5wJORGJ87IC0P1YLBwmoDpB94JVCY52zOoDHV78sP4dJ3f.K_nG7dm1vxglIqD4k6pIJ_LYbrzLnisTo_RmHH3OLqNrrIG_cgFkH_0fdKfpN37_Ms_NTT0RHwbHz5sSst21dALLNuv55b4DEbA2OINMwKymyAn.1mLEMkAV.toMk6fBi0HY23FhLJVzA.IAQuLNtWc9mzbLXGcc9RWYrvlPZiw4K2ZCBvaJb50BC3GwEmM4SDuYxJDYXQxcTTrfUpAz4SP5XVqYPWlRT_Q1Y33'
 EVALSECURE
@@ -43,8 +45,7 @@ bucketizer.first
 6 ->MAP
 </czd-quantumviz>
 
-
-### Einstein code ####
+#### Einstein code #####
 In this case bucketise is usefull to reduce the number of points displayed in the browser.
 
     bucketizer.first // take the first value in the bucket
@@ -86,7 +87,7 @@ bucketizer.sum
 6 ->MAP
 </czd-quantumviz>
 
-### Einstein code ###
+#### Einstein code ####
 The number of WH consumed per tick is extracted with the mapper framework
 
     // compute the WH consummed between each ticks
@@ -230,4 +231,4 @@ Electric energy disaggregation is one the most difficult analysis challenge, it 
 
 If you plan to make data analysis with impulse sensor, considere timestamp as one of the most accurate data.
 
-Please remember than saving the timestamp of each impulse will give you precious informations.
+Please remember than saving timestamp of each impulse will give you precious informations.
