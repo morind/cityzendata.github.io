@@ -195,7 +195,7 @@ MACROMAPPER
 As you can see on the graphic above, the power curve quality is widely better than the previous graphic.
 
 #### Einstein code ####
-This part is more compilcated, we have to apply different mappers. 
+This part is more complicated, we have to apply different mappers. 
 Firstly, extract ticks (timestamps)
 
     mapper.tick
