@@ -207,7 +207,7 @@ Let’s use Einstein to compute all of these features !
 After aggregating all these data, we use a training data set to create predictive models using classification algorithms (supervised learning). And then we involve predictions for the activity performing by users.
 Here we choose the implementation of the Random Forest method and Gradient-Boosted Trees using MLlib.
 
-Here the code.
+Here the code which shows how to load our dataset, split it into trainData and testData, and use LogisticRegressionWithLBFGS to fit a logistic regression multiclass model. After that the model is evaluated against the test dataset.
 
 INSERT CODE
 
