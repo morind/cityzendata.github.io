@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Data from an accelerometer"
+title:      "Predict user's activity from an accelerometer"
 subtitle:   "Recognize user's activity with data from an accelerometer"
 date:       2015-03-15 14:00:00Z
 author:     "lpr"
@@ -62,11 +62,16 @@ No...Not this one...
 <h1>Just few words about Einstein</h1>
 Einstein is our language which allows to manipulate Geo Time Series and make statistical computations. It is composed by several frameworks and a thousand of functions.
 
-*Bucketize framework*
+<h3>Bucketize framework</h3>
+
 The BUCKETIZE framework provides the tooling for putting the data of a Geo Time Series into regularly spaced buckets.
-*Mapper framework*
+
+<h3>Mapper framework</h3>
+
 The MAP framework allows you to apply a function on values of a Geo Time Series that fall into a sliding window.
-*Reduce framework*
+
+<h3>Reduce framework</h3>
+
 The REDUCE framework operates on equivalence classes forming a partition of a set of geo time series.
 
 <h1>Features computation with Einstein</h1>
