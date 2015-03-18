@@ -24,12 +24,26 @@ The accelerometer measures acceleration in all three spatial dimensions as follo
 
 The plots below show characteristics for each activity. Because of the periodicity of such activities, a few seconds windows is sufficient.
 
-<div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_walking.jpg"  alt="Walking activity"></div>
-<div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_jogging.jpg"  alt="Jogging activity"></div>
-<div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_upstairs.jpg"  alt="Upstairs activity"></div>
-<div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_downstairs.jpg"  alt="Downstairs activity"></div>
-<div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_standing.jpg"  alt="Standing activity"></div>
-<div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_sitting.jpg"  alt="Sitting activity"></div>
+<div class="image-panel">
+  	<div class="image-panel-cell">
+		<img src="http://127.0.0.1:4000/img/accelerometer_walking.jpg"  alt="Walking activity">
+  	</div>
+	<div class="image-panel-cell">
+		<img src="http://127.0.0.1:4000/img/accelerometer_jogging.jpg"  alt="Jogging activity">
+	</div>
+	<div class="image-panel-cell">
+		<img src="http://127.0.0.1:4000/img/accelerometer_upstairs.jpg"  alt="Upstairs activity">
+	</div>
+	<div class="image-panel-cell">
+		<img src="http://127.0.0.1:4000/img/accelerometer_downstairs.jpg"  alt="Downstairs activity">
+	</div>
+	<div class="image-panel-cell">
+		<img src="http://127.0.0.1:4000/img/accelerometer_standing.jpg"  alt="Standing activity">
+	</div>
+	<div class="image-panel-cell">
+		<img src="http://127.0.0.1:4000/img/accelerometer_sitting.jpg"  alt="Sitting activity">
+	</div>
+</div>
 
 
 The understanding of these graphics are essential to notice patterns for each activity and then recognize it.
