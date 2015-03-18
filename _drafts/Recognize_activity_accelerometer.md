@@ -26,22 +26,22 @@ The plots below show characteristics for each activity. Because of the periodici
 
 <div class="image-panel">
   	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_walking.jpg"  alt="Walking activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_walking.jpg" ><img src="http://127.0.0.1:4000/img/accelerometer_walking.jpg"  alt="Walking activity"></a>
   	</div>
 	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_jogging.jpg"  alt="Jogging activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_jogging.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_jogging.jpg"  alt="Jogging activity"></a>
 	</div>
 	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_upstairs.jpg"  alt="Upstairs activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_upstairs.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_upstairs.jpg"  alt="Upstairs activity"></a>
 	</div>
 	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_downstairs.jpg"  alt="Downstairs activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_downstairs.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_downstairs.jpg"  alt="Downstairs activity"></a>
 	</div>
 	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_standing.jpg"  alt="Standing activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_standing.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_standing.jpg"  alt="Standing activity"></a>
 	</div>
 	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_sitting.jpg"  alt="Sitting activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_sitting.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_sitting.jpg"  alt="Sitting activity"></a>
 	</div>
 </div>
 
