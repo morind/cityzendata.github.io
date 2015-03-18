@@ -494,6 +494,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   /* flex-direction flex-wrap */
+  align-items: center;
 }
 .image-panel .image-panel-cell {
   flex: 1 1 33%;
