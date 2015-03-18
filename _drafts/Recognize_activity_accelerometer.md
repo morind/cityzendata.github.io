@@ -10,7 +10,7 @@ header-img: "img/"
 <link rel="import" href="//api0.cityzendata.net/widgets/quantumviz/czd-quantumviz.html">
 
 The availability of acceleration sensors creates exciting new opportunities for data mining and predictive analytics applications.
-In this post, we consider data from accelerometers to perform activity recognition. And thanks this learning we want to identify the physical activity that a user is performing. Several possible applications ensue from this : activity reports, calories computation, alert sedentary, match music with the activity...To resume a lot of applications to promote and encourage health and fitness.
+In this post, we consider data from accelerometers to perform activity recognition. And thanks to this learning we want to identify the physical activity that a user is performing. Several possible applications ensue from this : activity reports, calories computation, sedentary alert, match music with the activity...To resume a lot of applications to promote and encourage health and fitness.
 This post is inspired from the [WISDM Lab’s study](http://www.cis.fordham.edu/wisdm/index.php) and data come from [here](http://www.cis.fordham.edu/wisdm/dataset.php).
 
 <h1>Data description</h1>
@@ -51,13 +51,13 @@ For example we observe repeating waves and peaks for the following repetitive ac
 We also observe no periodic behavior for more static activities like standing or sitting, but different amplitudes.
 
 <h1>Determine and compute features for the model</h1>
-EEach of these activities demonstrate characteristics that we will use to define the features of the model.
-For example, the plot for walking shows a series of high peaks for the y-axis spaced out approximately 0.5 seconds intervals, while it is rather a 0.25 seconds intervals for jogging.
+Each of these activities demonstrate characteristics that we will use to define the features of the model.
+For example, the plot for walking shows a series of high peaks for the y-axis spaced out at approximately 0.5 seconds intervals, while it is rather a 0.25 seconds intervals for jogging.
 We also notice that the range of the y-axis acceleration for jogging is greater than for walking.
 And so on.
 All these observations are very important to determine features we want to use for our model.
 
-We determine a windows (a few seconds) on which we will compute all these features.
+We determine a window (a few seconds) on which we will compute all these features.
 These features are described below :
 <ul>
 	<li>Average acceleration (for each axis)</li>
@@ -74,7 +74,7 @@ Now let’s use Einstein to compute all of these features !
 No...Not this one...
 
 <h1>Just few words about Einstein</h1>
-Einstein is our language which allows to manipulate Geo Time Series and make statistical computations. It is composed by several frameworks and a thousand of functions.
+Einstein is our language which allows to manipulate Geo Time Series and make statistical computations. It is composed of several frameworks and several thousand functions.
 
 <h3>Bucketize framework</h3>
 
@@ -86,7 +86,7 @@ The MAP framework allows you to apply a function on values of a Geo Time Series 
 
 <h3>Reduce framework</h3>
 
-The REDUCE framework operates on equivalence classes forming a partition of a set of geo time series.
+The REDUCE framework operates on equivalence classes forming a partition of a set of Geo Time Series.
 
 <h1>Features computation with Einstein</h1>
 Let’s use Einstein to compute all of these features !
@@ -102,7 +102,7 @@ Let’s use Einstein to compute all of these features !
 <h3>Average absolute difference</h3>
 
 	$data // call the data
-	DUP   // duplicate the data. Don't forget Einstein use a stack
+	DUP   // duplicate the data. Don't forget Einstein is stack based
 
 	// compute the mean
 	bucketizer.mean
@@ -118,7 +118,7 @@ Let’s use Einstein to compute all of these features !
 	5 ->LIST
 	MAP
 
-	// Then apply a absolute value : |x - mean|
+	// Then apply an absolute value : |x - mean|
 	mapper.abs
 	0 0 0
 	5 ->LIST
@@ -218,7 +218,7 @@ Let’s use Einstein to compute all of these features !
 
 
 <h1>Decision Trees, Random Forest and Multinomial Logistic Regression</h1>
-After aggregating all these data, we will use a training data set to create predictive models using classification algorithms (supervised learning). And then we will involve predictions for the activity performing by users.
+After aggregating all these data, we will use a training data set to create predictive models using classification algorithms (supervised learning). And then we will involve predictions for the activity performed by users.
 Here we have chosen the implementation of the Random Forest, Gradient-Boosted Trees and Multinomial Logistic Regression algorithms using MLlib.
 
 Here below the code which shows how to load our dataset, split it into trainData and testData.
