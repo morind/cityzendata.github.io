@@ -26,22 +26,22 @@ The plots below show characteristics for each activity. Because of the periodici
 
 <div class="image-panel">
   	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_walking.jpg"  alt="Walking activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_walking.jpg" ><img src="http://127.0.0.1:4000/img/accelerometer_walking.jpg"  alt="Walking activity"></a>
   	</div>
 	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_jogging.jpg"  alt="Jogging activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_jogging.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_jogging.jpg"  alt="Jogging activity"></a>
 	</div>
 	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_upstairs.jpg"  alt="Upstairs activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_upstairs.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_upstairs.jpg"  alt="Upstairs activity"></a>
 	</div>
 	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_downstairs.jpg"  alt="Downstairs activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_downstairs.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_downstairs.jpg"  alt="Downstairs activity"></a>
 	</div>
 	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_standing.jpg"  alt="Standing activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_standing.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_standing.jpg"  alt="Standing activity"></a>
 	</div>
 	<div class="image-panel-cell">
-		<img src="http://127.0.0.1:4000/img/accelerometer_sitting.jpg"  alt="Sitting activity">
+		<a href="http://127.0.0.1:4000/img/accelerometer_sitting.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_sitting.jpg"  alt="Sitting activity"></a>
 	</div>
 </div>
 
@@ -217,12 +217,70 @@ Let’s use Einstein to compute all of these features !
 	VALUES LIST-> DROP LIST-> DROP 'peak_x' STORE
 
 
-<h1>Decision Tree : Random Forest and Boosting methods</h1>
-After aggregating all these data, we use a training data set to create predictive models using classification algorithms (supervised learning). And then we involve predictions for the activity performing by users.
-Here we choose the implementation of the Random Forest method and Gradient-Boosted Trees using MLlib.
+<h1>Decision Trees, Random Forest and Multinomial Logistic Regression</h1>
+After aggregating all these data, we will use a training data set to create predictive models using classification algorithms (supervised learning). And then we will involve predictions for the activity performing by users.
+Here we have chosen the implementation of the Random Forest, Gradient-Boosted Trees and Multinomial Logistic Regression algorithms using MLlib.
 
-Here the code which shows how to load our dataset, split it into trainData and testData, and use LogisticRegressionWithLBFGS to fit a logistic regression multiclass model. After that the model is evaluated against the test dataset.
+Here below the code which shows how to load our dataset, split it into trainData and testData.
 
-INSERT CODE
+      // Split data into 2 sets : training (60%) and test (40%).
+      JavaRDD<LabeledPoint>[] splits = data.randomSplit(new double[]{0.6, 0.4});
+      JavaRDD<LabeledPoint> trainingData = splits[0].cache();
+      JavaRDD<LabeledPoint> testData = splits[1];
+
+<h3>Random Forest</h3>
+
+Let use the RandomForest._trainClassifier_ method to fit a random forest model. After that the model is evaluated against the test dataset.
+
+	Map<Integer, Integer> categoricalFeaturesInfo = new HashMap<>();
+    int numTrees = 10;
+    int numClasses = 4;
+    String featureSubsetStrategy = "auto";
+    String impurity = "gini";
+    int maxDepth = 9;
+    int maxBins = 100;
+
+    // create model
+    RandomForestModel model = org.apache.spark.mllib.tree.RandomForest.trainClassifier(trainingData, numClasses, categoricalFeaturesInfo, numTrees, featureSubsetStrategy, impurity, maxDepth, maxBins, 12345);
+
+    // Evaluate model on test instances and compute test error
+    JavaPairRDD<Double, Double> predictionAndLabel = testData.mapToPair(p -> new Tuple2<Double, Double>(model.predict(p.features()), p.label()));
+    // the error
+    Double testErr = 1.0 * predictionAndLabel.filter(pl -> !pl._1().equals(pl._2())).count() / testData.count();
+
+<h3>Decision Trees</h3>
+
+Let use DecisionTree._trainClassifier_ to fit a logistic regression multiclass model. After that the model is evaluated against the test dataset.
+
+	Map<Integer, Integer> categoricalFeaturesInfo = new HashMap<>();
+    int numClasses = 4;
+    String impurity = "gini";
+    int maxDepth = 9;
+    int maxBins = 100;
+
+    // create model
+    final DecisionTreeModel model = DecisionTree.trainClassifier(trainingData, numClasses, categoricalFeaturesInfo, impurity, maxDepth, maxBins);
+
+    // Evaluate model on training instances and compute training error
+    JavaPairRDD<Double, Double> predictionAndLabel = testData.mapToPair(p -> new Tuple2<>(model.predict(p.features()), p.label()));
+    // the error
+    Double testErrDT = 1.0 * predictionAndLabel.filter(pl -> !pl._1().equals(pl._2())).count() / testData.count();
+
+
+<h3>Multinomial Logistic Regression</h3>
+
+Now let use the class LogisticRegressionWithLBFGS to fit a logistic regression multiclass model. After that the model is evaluated against the test dataset.
+
+    LogisticRegressionModel model = new LogisticRegressionWithLBFGS()
+        .setNumClasses(4)
+        .run(trainingData.rdd());
+
+    JavaRDD<Tuple2<Object, Object>> predictionAndLabel = testData.map(p -> new Tuple2<>(model.predict(p.features()), p.label()));
+
+    // Evaluate metrics
+    MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabel.rdd());
+    // precision of the model. error = 1 - precision
+    Double precision = metrics.precision();
+
 
 <h1>Conclusion</h1>
