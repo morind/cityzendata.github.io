@@ -50,22 +50,30 @@ The understanding of these graphics are essential to notice patterns for each ac
 For example we observe repeating waves and peaks for the following repetitive activities walking, jogging, ascending stairs and descending stairs.
 We also observe no periodic behavior for more static activities like standing or sitting, but different amplitudes.
 
+The data sets provide data from 37 different users. And each user perform different activities several time. 
+So I have defined several windows for each user and each activity to retrieve more samples.
+
+Just below, an example of GTS using our Cityzen Data widget.
+
+<div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_widget_data.jpg"  alt="Einstein"></div>
+
+
 <h1>Determine and compute features for the model</h1>
 Each of these activities demonstrate characteristics that we will use to define the features of the model.
-For example, the plot for walking shows a series of high peaks for the y-axis spaced out at approximately 0.5 seconds intervals, while it is rather a 0.25 seconds intervals for jogging.
+For instance the plot for walking shows a series of high peaks for the y-axis spaced out at approximately 0.5 seconds intervals, while it is rather a 0.25 seconds intervals for jogging.
 We also notice that the range of the y-axis acceleration for jogging is greater than for walking.
-And so on.
-All these observations are very important to determine features we want to use for our model.
+And so on. 
+This analysis step is essential and *take time* to determine the best features to use for our model.
 
 We determine a window (a few seconds) on which we will compute all these features.
-These features are described below :
+After several tests with different features combination, the ones that I have chosen are described below :
 <ul>
 	<li>Average acceleration (for each axis)</li>
 	<li>Standard deviation (for each axis)</li>
 	<li>Average absolute difference (for each axis)</li>
 	<li>Average resultant acceleration (1/n * sum [√(x² + y² + z²)])</li>
-	<li>Average time between peaks (max) (for Y-axis)</li>
-</ul>
+	<li>Average time between peaks (max) (for each axis)</li>
+</ul> 
 
 Now let’s use Einstein to compute all of these features !
 
@@ -74,7 +82,7 @@ Now let’s use Einstein to compute all of these features !
 No...Not this one...
 
 <h1>Just few words about Einstein</h1>
-Einstein is our language which allows to manipulate Geo Time Series and make statistical computations. It is composed of several frameworks and several thousand functions.
+Einstein is our home-maid language which allows to manipulate Geo Time Series and make statistical computations. It is composed of several frameworks and several thousand functions.
 
 <h3>Bucketize framework</h3>
 
@@ -93,28 +101,29 @@ Let’s use Einstein to compute all of these features !
 
 <h3>Average acceleration and Standard deviation</h3>
 
-	false // Bessel correction
+	false               // Bessel correction
 	MUSIGMA 
-	'standev_x' STORE 
-	'mean_x' STORE
+	'standev_x' STORE  	// store the standart deviation
+	'mean_x' STORE      // store the mean
 
 
 <h3>Average absolute difference</h3>
 
-	$data // call the data
-	DUP   // duplicate the data. Don't forget Einstein is stack based
+	$data     // call the data
+	DUP       // duplicate the data. Don't forget Einstein is stack based
 
 	// compute the mean
 	bucketizer.mean
-	0 0 1
+	0 0 1           // lastbucket bucketspan bucketcount
 	5 ->LIST 
 	BUCKETIZE 
-	VALUES LIST-> DROP LIST-> DROP 'mean' STORE
+	VALUES LIST-> DROP LIST-> DROP  // As BUCKETIZE returns a GTS, extract the value of the GTS
+	'mean' STORE
 
 	// Here we do : x - mean for each point x
-	-1 $mean * // multiply by -1
-	mapper.add // and add this value 
-	0 0 0
+	-1 $mean *      // multiply by -1
+	mapper.add      // and add this value 
+	0 0 0           // sliding window of 1 (0 pre and 0 post), no options
 	5 ->LIST
 	MAP
 
@@ -130,26 +139,25 @@ Let’s use Einstein to compute all of these features !
 	0 0 1
 	5 ->LIST 
 	BUCKETIZE 
-	// store the result
-	VALUES LIST-> DROP LIST-> DROP 'avg_abs_x' STORE
+	VALUES LIST-> DROP LIST-> DROP 'avg_abs_x' STORE  	// store the result
 
 
 <h3>Average resultant acceleration</h3>
 
-	$data
+	$data         // call the data
 
 	// Compute the square of each value
-	2.0
+	2.0           // power 2.0
 	mapper.pow
-	0 0 0
+	0 0 0         // sliding window of 1 (0 pre and 0 post), no options
 	5 ->LIST
 	MAP
 
 	// Now add up !
-	[] // create one equivalence class with all Geo Time Series
+	[]            // create one equivalence class with all Geo Time Series
 	reducer.sum
 	3 ->LIST
-	REDUCE // it return only one GTS
+	REDUCE        // it returns only one GTS because we have one equivalence class
 
 	// Then compute the root square : √(x² + y² + z²)
 	0.5
@@ -163,8 +171,7 @@ Let’s use Einstein to compute all of these features !
 	0 0 1
 	5 ->LIST
 	BUCKETIZE
-	// store the returned value
-	VALUES LIST-> DROP LIST-> DROP 'res_acc' STORE
+	VALUES LIST-> DROP LIST-> DROP 'res_acc' STORE   // store the returned value
 
 
 <h3>Average time between peaks</h3>
@@ -174,16 +181,14 @@ Let’s use Einstein to compute all of these features !
 
 	// Now let define the maximum
 	bucketizer.max 
-	0 0 1   // lastbucket bucketspan  bucketcount
+	0 0 1          // lastbucket bucketspan  bucketcount
 	5 ->LIST
-	BUCKETIZE // return a GTS
-
-	// extract the max value and store it
-	VALUES LIST-> DROP LIST-> DROP 'max_x' STORE
+	BUCKETIZE      // return a GTS
+	VALUES LIST-> DROP LIST-> DROP 'max_x' STORE 	// extract the max value and store it
 
 	// keep data point for which the value is greather than 0.9 * max
 	$max_x 0.9 *
-	mapper.ge // ge i.e greather or equal
+	mapper.ge     // ge i.e greather or equal
 	0 0 0
 	5 ->LIST
 	MAP
@@ -212,12 +217,11 @@ Let’s use Einstein to compute all of these features !
 	0 0 1
 	5 ->LIST
 	BUCKETIZE
-
-	// and store the value
 	VALUES LIST-> DROP LIST-> DROP 'peak_x' STORE
 
 
 <h1>Decision Trees, Random Forest and Multinomial Logistic Regression</h1>
+We want to determine the user's activity from data. And the possible activities are : walking, jogging, sitting, standing, downstairs and upstairs. 
 After aggregating all these data, we will use a training data set to create predictive models using classification algorithms (supervised learning). And then we will involve predictions for the activity performed by users.
 Here are the implementation of the Random Forest, Gradient-Boosted Trees and Multinomial Logistic Regression methods using [MLlib](https://spark.apache.org/docs/1.3.0/mllib-guide.html), the Spark’s scalable machine learning library.
 
@@ -291,6 +295,7 @@ More about [Multinomial Logistic Regression](https://spark.apache.org/docs/1.3.0
     Double precision = metrics.precision();
 
 <h3>Results</h3>
+
 
 
 
