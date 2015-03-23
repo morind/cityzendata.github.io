@@ -57,6 +57,7 @@ Just below, an example of GTS using our Cityzen Data widget.
 
 <div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_widget_data.jpg"  alt="Einstein"></div>
 
+More about the data right [here](http://www.cis.fordham.edu/wisdm/dataset.php).
 
 <h1>Determine and compute features for the model</h1>
 Each of these activities demonstrate characteristics that we will use to define the features of the model.
@@ -221,11 +222,15 @@ Let’s use Einstein to compute all of these features !
 
 
 <h1>Decision Trees, Random Forest and Multinomial Logistic Regression</h1>
-We want to determine the user's activity from data. And the possible activities are : walking, jogging, sitting, standing, downstairs and upstairs. 
-After aggregating all these data, we will use a training data set to create predictive models using classification algorithms (supervised learning). And then we will involve predictions for the activity performed by users.
-Here are the implementation of the Random Forest, Gradient-Boosted Trees and Multinomial Logistic Regression methods using [MLlib](https://spark.apache.org/docs/1.3.0/mllib-guide.html), the Spark’s scalable machine learning library.
+Just te recapp : we want to determine the user's activity from data. And the possible activities are : walking, jogging, sitting, standing, downstairs and upstairs. So it is a classification problem.
 
-The algorithms are applyied on 4 classes : Jogging, Walking, Standing and Sitting.
+After aggregating all these data, we are going to use now a training data set to create predictive models using some of famous classification algorithms. And then we will involve predictions for the activity performed by users.
+
+In our case I decided to use the implementation of the Random Forest, Gradient-Boosted Trees and Multinomial Logistic Regression methods using [MLlib](https://spark.apache.org/docs/1.3.0/mllib-guide.html), the Spark’s scalable machine learning library.
+
+The algorithms are applyied on 6 classes : Jogging, Walking, Standing, Sitting, Downstairs and Upstairs.
+
+*Remark* : with the chosen features we have bad results to predict upstairs and dowstairs. So we need to define more relevant features to have a better prediction model.
 
 Here below the code which shows how to load our dataset, split it into trainData and testData.
 
@@ -242,7 +247,7 @@ More about [Random Forest](https://spark.apache.org/docs/1.3.0/mllib-ensembles.h
 
 	Map<Integer, Integer> categoricalFeaturesInfo = new HashMap<>();
     int numTrees = 10;
-    int numClasses = 4; // only 4 classes : Jogging, walking, standing and sitting
+    int numClasses = 6;      // Jogging, Walking, Standing, Sitting, Downstairs and Upstairs
     String featureSubsetStrategy = "auto";
     String impurity = "gini";
     int maxDepth = 9;
@@ -263,7 +268,7 @@ Let use DecisionTree._trainClassifier_ to fit a logistic regression multiclass m
 More about [Decision Tree](https://spark.apache.org/docs/1.3.0/mllib-decision-tree.html).
 
 	Map<Integer, Integer> categoricalFeaturesInfo = new HashMap<>();
-    int numClasses = 4;
+    int numClasses = 6;
     String impurity = "gini";
     int maxDepth = 9;
     int maxBins = 100;
@@ -284,7 +289,7 @@ Now let use the class LogisticRegressionWithLBFGS to fit a logistic regression m
 More about [Multinomial Logistic Regression](https://spark.apache.org/docs/1.3.0/mllib-linear-methods.html).
 
     LogisticRegressionModel model = new LogisticRegressionWithLBFGS()
-        .setNumClasses(4)
+        .setNumClasses(6)
         .run(trainingData.rdd());
 
     JavaRDD<Tuple2<Object, Object>> predictionAndLabel = testData.map(p -> new Tuple2<>(model.predict(p.features()), p.label()));
@@ -296,7 +301,21 @@ More about [Multinomial Logistic Regression](https://spark.apache.org/docs/1.3.0
 
 <h3>Results</h3>
 
+For 37 users, 2148 samples.
 
+nb classes | mean error (Random Forest)  | mean error (Decision Tree) | mean error (Multinomial Logistic Regression)
+---------- | --------------------------- | -------------------------- | --------------------------------------------
+4          | 			 2%				 |              3%            | 					 7%
+6          |    		17%              |             20%            |                     43%
 
+So we have pretty good result with these features for 4 classes, and else pretty bad results.
 
 <h1>Conclusion</h1>
+
+In this post we have first demonstrated how to use Einstein functions and framework for extracting features.
+
+The features extraction step is pretty long, because you need to test and experiment to find the best features as possible.
+
+We also have to prepare the data before you compute the features and push them on the Cityzen Data platform. And it can be long too.
+
+To finish if you are using Spark in your developments, it can be useful to use the Spark component called MLlib which provide a lot of common Machine Learning algorithms.
