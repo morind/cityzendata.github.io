@@ -20,7 +20,7 @@ The sensor also acts as an accumulator. The global trend (day by day) looks like
 
 All graphics in this article uses Cityzen Data visualization widget QuantumViz, a Polymer webcomponent designed for visualizing data from Cityzen Data platform.
 
-<czd-quantumviz width="500" height="400"> 
+<czd-quantumviz width="500" height="400" tooltip="false"> 
 'mrKvnoIttxEpVO5IxbsWvfjkg6gzqTMiF5a7JeHIepZu440snQEAneCUGAZ4JKKOVOLyD7evxGrWkfOcMh1lKRBoqptPjwbB4SOhT_j1ufAg4k119Ka.y5wJORGJ87IC0P1YLBwmoDpB94JVCY52zOoDHV78sP4dJ3f.K_nG7dm1vxglIqD4k6pIJ_LYbrzLnisTo_RmHH3OLqNrrIG_cgFkH_0fdKfpN37_Ms_NTT0RHwbHz5sSst21dALLNuv55b4DEbA2OINMwKymyAn.1mLEMkAV.toMk6fBi0HY23FhLJVzA.IAQuLNtWc9mzbLXGcc9RWYrvlPZiw4K2ZCBvaJb50BC3GwEmM4SDuYxJDYXQxcTTrfUpAz4SP5XVqYPWlRT_Q1Y33'
 EVALSECURE
 
@@ -58,7 +58,7 @@ In this case bucketize is usefull to reduce the number of points displayed in th
 
 We can easily sum the energy consumed per hours for the last 24 hours with the Cityzen Data bucketize framework.
 
-<czd-quantumviz width="500" height="400"> 
+<czd-quantumviz width="500" height="400" tooltip="false"> 
 'Ixlv_wanKqLaW.Q8hJFhnapicj3zxcFndZYLbsXwks8auv1SGbcmlgWaxLsxLdNqU7Ws16yVGZWcrcnURUFmunLC0Nv5oCDXCUlNBznNifBrqh8N9LegJzl.FrlulEDckaI7S8BjjuD1XWhgtKuTynCkPAtVGQYZfWggv12RgFtLQ6Vocft0RMXUsz.I9CkMQb8iRB_JMPuykxjvxLJDaRVoPcEMciiZqoUE81T..jvF0VWfZMSoA7zpj8h48NyJ4qUgsgLYsUaxmzrU083lXIwaELSvzmPTLZjCWmH36m8ZDWEXY2FMNWu0Whq_lhHtRLODIw08BsFBbrkCEsG_0A6K1Fa85.pOHAGNRtnJICW207vaIPRR3.'
 EVALSECURE
 
@@ -97,7 +97,7 @@ The number of WH consumed per tick is extracted with the mapper framework
 This give you an overview of your electric consumption, but not a detailed analysis. In this electric consumption sample, a convection heater is not working properly. It starts to many times for few seconds.
 Even if you bucketize the time series per minute, it is not easy to apply analysis patterns in order to detect default.
 
-<czd-quantumviz width="500" height="400">
+<czd-quantumviz width="500" height="400" tooltip="false">
 '.HvF1dIDdrNQzPuT2CcHSC4G5pANO0u5OV0bdaYxMSypFjqs0l8LNBsTFTMImxEjADC4pvKQvtmgqwYweDreqaScOjN.ReF1tXy2nkO1HBQiw2CaWDW7BXOo4k0d4H1LeGehpsIj1j.FhS5cb32Ax47deWOGPeHpLKKiIjhuvUFD78h.pHbcxkwY7U0aZJDKK9KnhvintyP2jNkSMgiMrAI8MEwuSNy_qXLkJvF0ezPF4imthPER4O61Jl837IAij1jWPXC8aKQzxR98GoLerqwcB4HV_W0p615npek1CLXz7HGClyqoD0WgRvGkZY8oO9dhpZ2aSDb691LFFF9zbsI2oNZ7KvEcDCXJWXb4XQ7'
 EVALSECURE
 
@@ -144,7 +144,7 @@ We can simply deduce power with the division below.
 
 Apply this division on the whole time series will produce power time series of the electric consumption.
 
-<czd-quantumviz width="500" height="400">
+<czd-quantumviz width="500" height="400" tooltip="false">
 '.HvF1dIDdrNQzPuT2CcHSC4G5pANO0u5OV0bdaYxMSypFjqs0l8LNBsTFTMImxEjADC4pvKQvtmgqwYweDreqaScOjN.ReF1tXy2nkO1HBQiw2CaWDW7BXOo4k0d4H1LeGehpsIj1j.FhS5cb32Ax47deWOGPeHpLKKiIjhuvUFD78h.pHbcxkwY7U0aZJDKK9KnhvintyP2jNkSMgiMrAI8MEwuSNy_qXLkJvF0ezPF4imthPER4O61Jl837IAij1jWPXC8aKQzxR98GoLerqwcB4HV_W0p615npek1CLXz7HGClyqoD0WgRvGkZY8oO9dhpZ2aSDb691LFFF9zbsI2oNZ7KvEcDCXJWXb4XQ7'
 EVALSECURE
 

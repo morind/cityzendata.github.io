@@ -26,10 +26,10 @@ The plots below show characteristics for each activity. Because of the periodici
 
 <div class="image-panel">
   	<div class="image-panel-cell">
-		<a href="http://127.0.0.1:4000/img/accelerometer_walking.jpg" ><img src="http://127.0.0.1:4000/img/accelerometer_walking.jpg"  alt="Walking activity"></a>
+		<a href="img/accelerometer_walking.jpg" ><img src="/img/accelerometer_walking.jpg"  alt="Walking activity"></a>
   	</div>
 	<div class="image-panel-cell">
-		<a href="http://127.0.0.1:4000/img/accelerometer_jogging.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_jogging.jpg"  alt="Jogging activity"></a>
+		<a href="img/accelerometer_jogging.jpg"><img src="img/accelerometer_jogging.jpg"  alt="Jogging activity"></a>
 	</div>
 	<div class="image-panel-cell">
 		<a href="http://127.0.0.1:4000/img/accelerometer_upstairs.jpg"><img src="http://127.0.0.1:4000/img/accelerometer_upstairs.jpg"  alt="Upstairs activity"></a>
