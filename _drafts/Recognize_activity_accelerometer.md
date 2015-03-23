@@ -219,7 +219,9 @@ Let’s use Einstein to compute all of these features !
 
 <h1>Decision Trees, Random Forest and Multinomial Logistic Regression</h1>
 After aggregating all these data, we will use a training data set to create predictive models using classification algorithms (supervised learning). And then we will involve predictions for the activity performed by users.
-Here we have chosen the implementation of the Random Forest, Gradient-Boosted Trees and Multinomial Logistic Regression algorithms using MLlib.
+Here are the implementation of the Random Forest, Gradient-Boosted Trees and Multinomial Logistic Regression methods using [MLlib](https://spark.apache.org/docs/1.3.0/mllib-guide.html), the Spark’s scalable machine learning library.
+
+The algorithms are applyied on 4 classes : Jogging, Walking, Standing and Sitting.
 
 Here below the code which shows how to load our dataset, split it into trainData and testData.
 
@@ -232,9 +234,11 @@ Here below the code which shows how to load our dataset, split it into trainData
 
 Let use the RandomForest._trainClassifier_ method to fit a random forest model. After that the model is evaluated against the test dataset.
 
+More about [Random Forest](https://spark.apache.org/docs/1.3.0/mllib-ensembles.html#random-forests).
+
 	Map<Integer, Integer> categoricalFeaturesInfo = new HashMap<>();
     int numTrees = 10;
-    int numClasses = 4;
+    int numClasses = 4; // only 4 classes : Jogging, walking, standing and sitting
     String featureSubsetStrategy = "auto";
     String impurity = "gini";
     int maxDepth = 9;
@@ -251,6 +255,8 @@ Let use the RandomForest._trainClassifier_ method to fit a random forest model. 
 <h3>Decision Trees</h3>
 
 Let use DecisionTree._trainClassifier_ to fit a logistic regression multiclass model. After that the model is evaluated against the test dataset.
+
+More about [Decision Tree](https://spark.apache.org/docs/1.3.0/mllib-decision-tree.html).
 
 	Map<Integer, Integer> categoricalFeaturesInfo = new HashMap<>();
     int numClasses = 4;
@@ -271,6 +277,8 @@ Let use DecisionTree._trainClassifier_ to fit a logistic regression multiclass m
 
 Now let use the class LogisticRegressionWithLBFGS to fit a logistic regression multiclass model. After that the model is evaluated against the test dataset.
 
+More about [Multinomial Logistic Regression](https://spark.apache.org/docs/1.3.0/mllib-linear-methods.html).
+
     LogisticRegressionModel model = new LogisticRegressionWithLBFGS()
         .setNumClasses(4)
         .run(trainingData.rdd());
@@ -281,6 +289,9 @@ Now let use the class LogisticRegressionWithLBFGS to fit a logistic regression m
     MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabel.rdd());
     // precision of the model. error = 1 - precision
     Double precision = metrics.precision();
+
+<h3>Results</h3>
+
 
 
 <h1>Conclusion</h1>
