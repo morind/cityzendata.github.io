@@ -301,11 +301,11 @@ More about [Multinomial Logistic Regression](https://spark.apache.org/docs/1.3.0
 
 <h3>Results</h3>
 
-For 37 users, 2148 samples.
+For 37 users, 1380/2148 samples(4/6 classes).
 
 nb classes | mean error (Random Forest)  | mean error (Decision Tree) | mean error (Multinomial Logistic Regression)
 ---------- | --------------------------- | -------------------------- | --------------------------------------------
-4          | 			 2%				 |              3%            | 					 7%
+4          | 		     1.4%			 |              2.3%          | 					 7.2%
 6          |    		17%              |             20%            |                     43%
 
 So we have pretty good result with these features for 4 classes, and else pretty bad results.
