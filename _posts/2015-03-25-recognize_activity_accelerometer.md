@@ -83,7 +83,7 @@ After several tests with different features combination, the ones that I have ch
 
 Now let’s use Einstein to compute all of these features!
 
-<div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_einstein.jpg"  alt="Einstein"></div>
+<div class="image"><img src="/img/accelerometer_einstein.jpg"  alt="Einstein"></div>
 
 No... Not this one...
 
