@@ -10,7 +10,7 @@ header-img: "img/"
 <link rel="import" href="//api0.cityzendata.net/widgets/quantumviz/czd-quantumviz.html">
 
 The availability of acceleration sensors creates exciting new opportunities for data mining and predictive analytics applications.
-In this post, we consider data from accelerometers to perform activity recognition. And thanks to this learning we want to identify the physical activity that a user is performing. Several possible applications ensue from this: activity reports, calories computation, alert sedentary, match music with the activity... In brief, a lot of applications to promote and encourage health and fitness.
+In this post, we consider data from accelerometers to perform activity recognition. And thanks to this learning we want to identify the physical activity that a user is performing. Several possible applications ensue from this: activity reports, calories computation, alert sedentary, match music with the activity...In brief, a lot of applications to promote and encourage health and fitness.
 This post is inspired from the [WISDM Lab’s study](http://www.cis.fordham.edu/wisdm/index.php) and data come from [here](http://www.cis.fordham.edu/wisdm/dataset.php).
 
 ## Data description
@@ -67,11 +67,11 @@ More about the data right [here](http://www.cis.fordham.edu/wisdm/dataset.php).
 Each of these activities demonstrate characteristics that we will use to define the features of the model.
 For example, the plot for walking shows a series of high peaks for the y-axis spaced out approximately 0.5 seconds intervals, while it is rather a 0.25 seconds interval for jogging.
 We also notice that the range of the y-axis acceleration for jogging is greater than for walking, and so on.
-This analysis step is essential and *take time* to determine the best features to use for our model.
+This analysis step is essential and **take time** to determine the best features to use for our model.
 
 We determine a window (a few seconds) on which we will compute all these features.
 
-After several tests with different features combination, the ones that I have chosen are described below :
+After several tests with different features combination, the ones that I have chosen are described below:
 
 
 <ul>
@@ -82,7 +82,7 @@ After several tests with different features combination, the ones that I have ch
 	<li>Average time between peaks (max) (for each axis)</li>
 </ul> 
 
-Now let’s use Einstein to compute all of these features !
+Now let’s use Einstein to compute all of these features!
 
 <div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_einstein.jpg"  alt="Einstein"></div>
 
@@ -106,18 +106,18 @@ The REDUCE framework operates on equivalence classes forming a partition of a se
 
 ## Features computation with Einstein
 
-Let’s use Einstein to compute all of these features !
+Let’s use Einstein to compute all of these features!
 
 ### Average acceleration and Standard deviation
 
 
 <pre><code class="language-clike">
-  $data // call the data
+  	$data // call the data
 
 	false               // Bessel correction
 	MUSIGMA 
-  'standev_x' STORE   // store the standart deviation
-  'mean_x' STORE      // store the mean
+  	'standev_x' STORE   // store the standart deviation
+  	'mean_x' STORE      // store the mean
 </code></pre>
 
 ### Average absolute difference
@@ -135,33 +135,33 @@ Let’s use Einstein to compute all of these features !
 	VALUES LIST-> DROP LIST-> DROP  // As BUCKETIZE returns a GTS, extract the value of the GTS
 	'mean' STORE
 
-	// Here we do : x - mean for each point x
+	// Here we do: x - mean for each point x
 	-1 $mean *      // multiply by -1
 	mapper.add      // and add this value 
 	0 0 0           // sliding window of 1 (0 pre and 0 post), no options
 	5 ->LIST
 	MAP
 
-	// Then apply an absolute value : |x - mean|
+	// Then apply an absolute value: |x - mean|
 	mapper.abs
 	0 0 0
 	5 ->LIST
 	MAP
 
-	// And compute the mean : (1 / n )* sum |x - mean|
+	// And compute the mean: (1 / n )* sum |x - mean|
 	// where n is the lenth of the time series
 	bucketizer.mean
 	0 0 1
 	5 ->LIST 
 	BUCKETIZE 
 	// store the result
-  VALUES LIST-> DROP LIST-> DROP 'avg_abs_x' STORE    // store the result
+  	VALUES LIST-> DROP LIST-> DROP 'avg_abs_x' STORE    // store the result
 </code></pre>
 
 ### Average resultant acceleration
 
 <pre><code class="language-clike">
-  $data // call the data
+  	$data // call the data
 
 	// Compute the square of each value
 	2.0           // power 2.0
@@ -170,26 +170,26 @@ Let’s use Einstein to compute all of these features !
 	5 ->LIST
 	MAP
 
-	// Now add up !
+	// Now add up!
 	[]            // create one equivalence class with all Geo Time Series
 	reducer.sum
 	3 ->LIST
 	REDUCE        // it returns only one GTS because we have one equivalence class
 
-	// Then compute the root square : √(x² + y² + z²)
+	// Then compute the root square: √(x² + y² + z²)
 	0.5
 	mapper.pow
 	0 0 0
 	5 ->LIST
 	MAP
 
-	// And apply a mean function : 1/n * sum [√(x² + y² + z²)]
+	// And apply a mean function: 1/n * sum [√(x² + y² + z²)]
 	bucketizer.mean
 	0 0 1
 	5 ->LIST
 	BUCKETIZE
 
-  VALUES LIST-> DROP LIST-> DROP 'res_acc' STORE   // store the returned value
+  	VALUES LIST-> DROP LIST-> DROP 'res_acc' STORE   // store the returned value
 </code></pre>
 
 ### Average time between peaks
@@ -245,14 +245,14 @@ Let’s use Einstein to compute all of these features !
 
 ## Decision Trees, Random Forest and Multinomial Logistic Regression
 
-Just te recapp : we want to determine the user's activity from data. And the possible activities are : walking, jogging, sitting, standing, downstairs and upstairs. So it is a classification problem.
+Just te recapp: we want to determine the user's activity from data. And the possible activities are: walking, jogging, sitting, standing, downstairs and upstairs. So it is a classification problem.
 
 After aggregating all these data, we will use a training data set to create predictive models using classification algorithms (supervised learning). And then we will involve predictions for the activity performing by users.
-Here we have chosen the implementation of the *Random Forest*, *Gradient-Boosted Trees* and *Multinomial Logistic Regression* algorithms using [MLlib](https://spark.apache.org/docs/1.3.0/mllib-guide.html), the Spark’s scalable machine learning library.
+Here we have chosen the implementation of the **Random Forest**, **Gradient-Boosted Trees** and **Multinomial Logistic Regression** algorithms using [MLlib](https://spark.apache.org/docs/1.3.0/mllib-guide.html), the Spark’s scalable machine learning library.
 
 
 
-The algorithms are applyied on 6 classes : Jogging, Walking, Standing, Sitting, Downstairs and Upstairs.
+The algorithms are applyied on 6 classes: Jogging, Walking, Standing, Sitting, Downstairs and Upstairs.
 
 *Remark:* with the chosen features we have bad results to predict upstairs and dowstairs. So we need to define more relevant features to have a better prediction model.
 
@@ -260,10 +260,10 @@ Here below the code which shows how to load our dataset, split it into trainData
 
 
 <pre><code class="language-java">
-  // Split data into 2 sets : training (60%) and test (40%).
-  JavaRDD&lt;LabeledPoint>[] splits = data.randomSplit(new double[]{0.6, 0.4});
-  JavaRDD&lt;LabeledPoint> trainingData = splits[0].cache();
-  JavaRDD&lt;LabeledPoint> testData = splits[1];
+	// Split data into 2 sets: training (60%) and test (40%).
+	JavaRDD&lt;LabeledPoint>[] splits = data.randomSplit(new double[]{0.6, 0.4});
+	JavaRDD&lt;LabeledPoint> trainingData = splits[0].cache();
+	JavaRDD&lt;LabeledPoint> testData = splits[1];
 </code></pre>
 
 
@@ -275,25 +275,30 @@ Let use the RandomForest.*trainClassifier* method to fit a random forest model. 
 More about [Random Forest](https://spark.apache.org/docs/1.3.0/mllib-ensembles.html#random-forests).
 
 <pre><code class="language-java">
-  Map<Integer, Integer> categoricalFeaturesInfo = new HashMap<>();
-  int numTrees = 10;
-  int numClasses = 6;      // Jogging, Walking, Standing, Sitting, Downstairs and Upstairs
-  String featureSubsetStrategy = "auto";
-  String impurity = "gini";
-  int maxDepth = 9;
-  int maxBins = 100;
+  	Map<Integer, Integer> categoricalFeaturesInfo = new HashMap<>();
+  	int numTrees = 10;
+  	int numClasses = 6;      // Jogging, Walking, Standing, Sitting, Downstairs and Upstairs
+  	String featureSubsetStrategy = "auto";
+  	String impurity = "gini";
+  	int maxDepth = 9;
+  	int maxBins = 100;
 
-  // create model  
-  RandomForestModel model = RandomForest.trainClassifier(trainingData, numClasses, 
-      categoricalFeaturesInfo, numTrees, featureSubsetStrategy, 
-      impurity, maxDepth, maxBins, 12345);
+  	// create model  
+  	RandomForestModel model = RandomForest.trainClassifier(trainingData, 																			 							numClasses, 
+												      		categoricalFeaturesInfo, 
+												      		numTrees, 
+												      		featureSubsetStrategy, 
+												      		impurity, 
+												      		maxDepth, 
+												      		maxBins, 
+												      		12345);
 
-  // Evaluate model on test instances and compute test error
-  JavaPairRDD<Double, Double> predictionAndLabel = 
+  	// Evaluate model on test instances and compute test error
+  	JavaPairRDD<Double, Double> predictionAndLabel = 
       testData.mapToPair(p -> new Tuple2<Double, Double>(model.predict(p.features()), p.label()));
 
-  // the error
-  Double testErr = 
+  	// the error
+  	Double testErr = 
       1.0 * predictionAndLabel.filter(pl -> !pl._1().equals(pl._2())).count() / testData.count();
 </code></pre>
 
@@ -306,22 +311,26 @@ More about [Decision Tree](https://spark.apache.org/docs/1.3.0/mllib-decision-tr
 
 
 <pre><code class="language-java">
-  Map<Integer, Integer> categoricalFeaturesInfo = new HashMap<>();
-  int numClasses = 6;
-  String impurity = "gini";
-  int maxDepth = 9;
-  int maxBins = 100;
+  	Map<Integer, Integer> categoricalFeaturesInfo = new HashMap<>();
+  	int numClasses = 6;
+  	String impurity = "gini";
+  	int maxDepth = 9;
+  	int maxBins = 100;
 
-  // create model
-  final DecisionTreeModel model = DecisionTree.trainClassifier(trainingData, numClasses, 
-      categoricalFeaturesInfo, impurity, maxDepth, maxBins);
+  	// create model
+  	final DecisionTreeModel model = DecisionTree.trainClassifier(trainingData, 
+																  	numClasses, 
+																    categoricalFeaturesInfo, 
+																    impurity, 
+																    maxDepth, 
+																    maxBins);
 
-  // Evaluate model on training instances and compute training error
-  JavaPairRDD<Double, Double> predictionAndLabel = 
+  	// Evaluate model on training instances and compute training error
+  	JavaPairRDD<Double, Double> predictionAndLabel = 
       testData.mapToPair(p -> new Tuple2<>(model.predict(p.features()), p.label()));
 
-  // the error
-  Double testErrDT = 
+  	// the error
+  	Double testErrDT = 
       1.0 * predictionAndLabel.filter(pl -> !pl._1().equals(pl._2())).count() / testData.count();
 </code></pre>
 
@@ -333,18 +342,18 @@ Now let use the class LogisticRegressionWithLBFGS to fit a logistic regression m
 More about [Multinomial Logistic Regression](https://spark.apache.org/docs/1.3.0/mllib-linear-methods.html).
 
 <pre><code class="language-java">
-  LogisticRegressionModel model = new LogisticRegressionWithLBFGS()
-      .setNumClasses(6)
-      .run(trainingData.rdd());
+  	LogisticRegressionModel model = new LogisticRegressionWithLBFGS()
+										      .setNumClasses(6)
+										      .run(trainingData.rdd());
 
-  JavaRDD<Tuple2<Object, Object>> predictionAndLabel = 
+  	JavaRDD<Tuple2<Object, Object>> predictionAndLabel = 
       testData.map(p -> new Tuple2<>(model.predict(p.features()), p.label()));
 
-  // Evaluate metrics
-  MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabel.rdd());
+  	// Evaluate metrics
+  	MulticlassMetrics metrics = new MulticlassMetrics(predictionAndLabel.rdd());
 
-  // precision of the model. error = 1 - precision
-  Double precision = metrics.precision();
+  	// precision of the model. error = 1 - precision
+  	Double precision = metrics.precision();
 </code></pre>
 
 ## Results
