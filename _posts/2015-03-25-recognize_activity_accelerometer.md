@@ -57,7 +57,7 @@ So I have defined several windows for each user and each activity to retrieve mo
 
 Just below, an example of GTS using our Cityzen Data widget.
 
-<div class="image"><img src="http://127.0.0.1:4000/img/accelerometer_widget_data.jpg"  alt="Einstein"></div>
+<div class="image"><img src="/img/accelerometer_widget_data.jpg"  alt="Einstein"></div>
 
 More about the data right [here](http://www.cis.fordham.edu/wisdm/dataset.php).
 
