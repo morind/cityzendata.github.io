@@ -336,7 +336,7 @@ More about [Decision Tree](https://spark.apache.org/docs/1.3.0/mllib-decision-tr
 
 ### Multinomial Logistic Regression
 
-Now let use the class LogisticRegressionWithLBFGS to fit a logistic regression multiclass model. After that the model is evaluated against the test dataset.
+Now let's use the class LogisticRegressionWithLBFGS to fit a logistic regression multiclass model. After that the model is evaluated against the test dataset.
 
 
 More about [Multinomial Logistic Regression](https://spark.apache.org/docs/1.3.0/mllib-linear-methods.html).
@@ -393,6 +393,6 @@ In this post we have first demonstrated how to use Einstein functions and framew
 
 The features extraction step is pretty long, because you need to test and experiment to find the best features as possible.
 
-We also have to prepare the data before you compute the features and push them on the Cityzen Data platform. And it can be long too.
+We also have to prepare the data before we compute the features and push them on the Cityzen Data platform. And it can be long too.
 
-To finish if you are using Spark in your developments, it can be useful to use the Spark component called MLlib which provide a lot of common Machine Learning algorithms.
+To finish if you are using Spark in your developments, it can be useful to use the Spark component called MLlib which provides a lot of common Machine Learning algorithms.
