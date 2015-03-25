@@ -2,7 +2,6 @@
 layout:     post
 title:      "Predict user's activity from an accelerometer"
 subtitle:   "Recognize user's activity with data from an accelerometer"
-date:       2015-03-15 14:00:00Z
 author:     "lpr"
 header-img: "img/"
 ---
@@ -112,84 +111,84 @@ Let’s use Einstein to compute all of these features!
 
 
 <pre><code class="language-clike">
-  	$data // call the data
+  $data // call the data
 
-	false               // Bessel correction
-	MUSIGMA 
-  	'standev_x' STORE   // store the standart deviation
-  	'mean_x' STORE      // store the mean
+  false               // Bessel correction
+  MUSIGMA 
+  'standev_x' STORE   // store the standart deviation
+  'mean_x' STORE      // store the mean
 </code></pre>
 
 ### Average absolute difference
 
 
 <pre><code class="language-clike">
-	$data // call the data
-	DUP   // duplicate the data. Don't forget Einstein use a stack
+  $data // call the data
+  DUP   // duplicate the data. Don't forget Einstein use a stack
 
-	// compute the mean
-	bucketizer.mean
-	0 0 1           // lastbucket bucketspan bucketcount
-	5 ->LIST 
-	BUCKETIZE 
-	VALUES LIST-> DROP LIST-> DROP  // As BUCKETIZE returns a GTS, extract the value of the GTS
-	'mean' STORE
+  // compute the mean
+  bucketizer.mean
+  0 0 1           // lastbucket bucketspan bucketcount
+  5 ->LIST 
+  BUCKETIZE 
+  VALUES LIST-> DROP LIST-> DROP  // As BUCKETIZE returns a GTS, extract the value of the GTS
+  'mean' STORE
 
-	// Here we do: x - mean for each point x
-	-1 $mean *      // multiply by -1
-	mapper.add      // and add this value 
-	0 0 0           // sliding window of 1 (0 pre and 0 post), no options
-	5 ->LIST
-	MAP
+  // Here we do: x - mean for each point x
+  -1 $mean *      // multiply by -1
+  mapper.add      // and add this value 
+  0 0 0           // sliding window of 1 (0 pre and 0 post), no options
+  5 ->LIST
+  MAP
 
-	// Then apply an absolute value: |x - mean|
-	mapper.abs
-	0 0 0
-	5 ->LIST
-	MAP
+  // Then apply an absolute value: |x - mean|
+  mapper.abs
+  0 0 0
+  5 ->LIST
+  MAP
 
-	// And compute the mean: (1 / n )* sum |x - mean|
-	// where n is the lenth of the time series
-	bucketizer.mean
-	0 0 1
-	5 ->LIST 
-	BUCKETIZE 
-	// store the result
-  	VALUES LIST-> DROP LIST-> DROP 'avg_abs_x' STORE    // store the result
+  // And compute the mean: (1 / n )* sum |x - mean|
+  // where n is the lenth of the time series
+  bucketizer.mean
+  0 0 1
+  5 ->LIST 
+  BUCKETIZE 
+  // store the result
+  VALUES LIST-> DROP LIST-> DROP 'avg_abs_x' STORE    // store the result
 </code></pre>
 
 ### Average resultant acceleration
 
 <pre><code class="language-clike">
-  	$data // call the data
+  $data // call the data
 
-	// Compute the square of each value
-	2.0           // power 2.0
-	mapper.pow
-	0 0 0         // sliding window of 1 (0 pre and 0 post), no options
-	5 ->LIST
-	MAP
+  // Compute the square of each value
+  2.0           // power 2.0
+  mapper.pow
+  0 0 0         // sliding window of 1 (0 pre and 0 post), no options
+  5 ->LIST
+  MAP
 
-	// Now add up!
-	[]            // create one equivalence class with all Geo Time Series
-	reducer.sum
-	3 ->LIST
-	REDUCE        // it returns only one GTS because we have one equivalence class
+  // Now add up!
+  []            // create one equivalence class with all Geo Time Series
+  reducer.sum
+  3 ->LIST
+  REDUCE        // it returns only one GTS because we have one equivalence class
 
-	// Then compute the root square: √(x² + y² + z²)
-	0.5
-	mapper.pow
-	0 0 0
-	5 ->LIST
-	MAP
+  // Then compute the root square: √(x² + y² + z²)
+  0.5
+  mapper.pow
+  0 0 0
+  5 ->LIST
+  MAP
 
-	// And apply a mean function: 1/n * sum [√(x² + y² + z²)]
-	bucketizer.mean
-	0 0 1
-	5 ->LIST
-	BUCKETIZE
+  // And apply a mean function: 1/n * sum [√(x² + y² + z²)]
+  bucketizer.mean
+  0 0 1
+  5 ->LIST
+  BUCKETIZE
 
-  	VALUES LIST-> DROP LIST-> DROP 'res_acc' STORE   // store the returned value
+  VALUES LIST-> DROP LIST-> DROP 'res_acc' STORE   // store the returned value
 </code></pre>
 
 ### Average time between peaks
@@ -284,14 +283,15 @@ More about [Random Forest](https://spark.apache.org/docs/1.3.0/mllib-ensembles.h
   	int maxBins = 100;
 
   	// create model  
-  	RandomForestModel model = RandomForest.trainClassifier(trainingData, 																			 							numClasses, 
-												      		categoricalFeaturesInfo, 
-												      		numTrees, 
-												      		featureSubsetStrategy, 
-												      		impurity, 
-												      		maxDepth, 
-												      		maxBins, 
-												      		12345);
+  	RandomForestModel model =  RandomForest.trainClassifier(trainingData, 
+                                                            numClasses, 
+                                                            categoricalFeaturesInfo, 
+                                                            numTrees, 
+                                                            featureSubsetStrategy, 
+                                                            impurity, 
+                                                            maxDepth, 
+                                                            maxBins, 
+                                                            12345);
 
   	// Evaluate model on test instances and compute test error
   	JavaPairRDD<Double, Double> predictionAndLabel = 
@@ -318,12 +318,12 @@ More about [Decision Tree](https://spark.apache.org/docs/1.3.0/mllib-decision-tr
   	int maxBins = 100;
 
   	// create model
-  	final DecisionTreeModel model = DecisionTree.trainClassifier(trainingData, 
-																  	numClasses, 
-																    categoricalFeaturesInfo, 
-																    impurity, 
-																    maxDepth, 
-																    maxBins);
+  	final DecisionTreeModel model =  DecisionTree.trainClassifier(trainingData, 
+                                                                  numClasses, 
+                                                                  categoricalFeaturesInfo, 
+                                                                  impurity, 
+                                                                  maxDepth, 
+                                                                  maxBins);
 
   	// Evaluate model on training instances and compute training error
   	JavaPairRDD<Double, Double> predictionAndLabel = 

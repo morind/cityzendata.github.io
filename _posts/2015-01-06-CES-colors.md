@@ -2,7 +2,6 @@
 layout:     post
 title:      "The color of CES"
 subtitle:   "how we sense the CES' crowd color preferences"
-date:       2015-01-06 14:00:00Z
 author:     "hbs"
 header-img: "img/post-bg-01.jpg"
 ---
