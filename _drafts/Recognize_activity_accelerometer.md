@@ -248,7 +248,7 @@ Let’s use Einstein to compute all of these features!
 Just te recapp: we want to determine the user's activity from data. And the possible activities are: walking, jogging, sitting, standing, downstairs and upstairs. So it is a classification problem.
 
 After aggregating all these data, we will use a training data set to create predictive models using classification algorithms (supervised learning). And then we will involve predictions for the activity performing by users.
-Here we have chosen the implementation of the *Random Forest*, *Gradient-Boosted Trees* and *Multinomial Logistic Regression* algorithms using [MLlib](https://spark.apache.org/docs/1.3.0/mllib-guide.html), the Spark’s scalable machine learning library.
+Here we have chosen the implementation of the **Random Forest**, **Gradient-Boosted Trees** and **Multinomial Logistic Regression** algorithms using [MLlib](https://spark.apache.org/docs/1.3.0/mllib-guide.html), the Spark’s scalable machine learning library.
 
 
 
@@ -318,8 +318,12 @@ More about [Decision Tree](https://spark.apache.org/docs/1.3.0/mllib-decision-tr
   	int maxBins = 100;
 
   	// create model
-  	final DecisionTreeModel model = DecisionTree.trainClassifier(trainingData, numClasses, 
-      categoricalFeaturesInfo, impurity, maxDepth, maxBins);
+  	final DecisionTreeModel model = DecisionTree.trainClassifier(trainingData, 
+																  	numClasses, 
+																    categoricalFeaturesInfo, 
+																    impurity, 
+																    maxDepth, 
+																    maxBins);
 
   	// Evaluate model on training instances and compute training error
   	JavaPairRDD<Double, Double> predictionAndLabel = 
