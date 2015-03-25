@@ -66,7 +66,7 @@ More about the data right [here](http://www.cis.fordham.edu/wisdm/dataset.php).
 Each of these activities demonstrate characteristics that we will use to define the features of the model.
 For example, the plot for walking shows a series of high peaks for the y-axis spaced out approximately 0.5 seconds intervals, while it is rather a 0.25 seconds interval for jogging.
 We also notice that the range of the y-axis acceleration for jogging is greater than for walking, and so on.
-This analysis step is essential and **take time** to determine the best features to use for our model.
+This analysis step is essential and **takes time** to determine the best features to use for our model.
 
 We determine a window (a few seconds) on which we will compute all these features.
 
@@ -89,7 +89,7 @@ No... Not this one...
 
 ## Just few words about Einstein
 
-Einstein is our home-made language which allows to manipulate Geo Time Series and make statistical computations. It is composed of several frameworks and several thousand functions.
+Einstein is our home-made language which allows to manipulate Geo Time Series and make statistical computations. It is composed of several frameworks and several hundreds functions.
 
 ### Bucketize framework
 
