@@ -98,7 +98,7 @@ This give you an overview of your electric consumption, but not a detailed analy
 Even if you bucketize the time series per minute, it is not easy to apply analysis patterns in order to detect default.
 
 <czd-quantumviz width="500" height="400" host="https://api0.cityzendata.net">
-'KHMU0wrc87BVXzItuWF.DTwls0AusWgMcD_S4bBeZcMX5C5eV70RPw9kAsKAAPIN3sXe9Ha4kHZ5XUi5o.A_FiYpo25YAzTtomoQMJ9rPgUxduDExu.Xar9INAs7xL7gFQx7n.sWJyfeMGFKrlHZ_4eWejE58snaeFrgEEMmnVo.388dp3hUWckO.McQxprIddaApc5kzdE15OFMnQNMMa43wXbWENmdwWNzJ3tIAlWcqbZgKyyygFS4fZZ1PN_1TDRD2fq6Vc4aTlbHl0FlULs_rqJUil1xI7BLwNVMn2toWDVxAK9K8.PZn77RbLaEyFBjPVOz4c'
+'X6Tv.UsLtILf6CHK1tEVCLyr79_V1YGOl6Kx.QeGCS8LilFBxqJPLlFaEqsV7l57NXjy8kPOO_RRpLAj7QIpaok1HBKxa234WW1EaOiJjAvD9fQDt5ejlwEVpfgobMkC_0T9aGUth.FslbJM66GkP0do0p4cAYPN3G7erDrm7JOxqQHonz3i.yxjZLvBfrP18wXni_DmuHj_ovYcwjxoIfH2AJNMOM4fnT7uIms17F3oke9G58Eh7ro2SIC0XjG_3X1ABUIAqLTh8XNQr6ambeAfJUARUkG9d7TjJLU2any8qw6joJEiPecqm1lGHUqsH9tw_eFaW_N'
 EVALSECURE
 
 mapper.delta
@@ -145,7 +145,7 @@ We can simply deduce power with the division below.
 Apply this division on the whole time series will produce power time series of the electric consumption.
 
 <czd-quantumviz width="500" height="400" host="https://api0.cityzendata.net">
-'KHMU0wrc87BVXzItuWF.DTwls0AusWgMcD_S4bBeZcMX5C5eV70RPw9kAsKAAPIN3sXe9Ha4kHZ5XUi5o.A_FiYpo25YAzTtomoQMJ9rPgUxduDExu.Xar9INAs7xL7gFQx7n.sWJyfeMGFKrlHZ_4eWejE58snaeFrgEEMmnVo.388dp3hUWckO.McQxprIddaApc5kzdE15OFMnQNMMa43wXbWENmdwWNzJ3tIAlWcqbZgKyyygFS4fZZ1PN_1TDRD2fq6Vc4aTlbHl0FlULs_rqJUil1xI7BLwNVMn2toWDVxAK9K8.PZn77RbLaEyFBjPVOz4c'
+'X6Tv.UsLtILf6CHK1tEVCLyr79_V1YGOl6Kx.QeGCS8LilFBxqJPLlFaEqsV7l57NXjy8kPOO_RRpLAj7QIpaok1HBKxa234WW1EaOiJjAvD9fQDt5ejlwEVpfgobMkC_0T9aGUth.FslbJM66GkP0do0p4cAYPN3G7erDrm7JOxqQHonz3i.yxjZLvBfrP18wXni_DmuHj_ovYcwjxoIfH2AJNMOM4fnT7uIms17F3oke9G58Eh7ro2SIC0XjG_3X1ABUIAqLTh8XNQr6ambeAfJUARUkG9d7TjJLU2any8qw6joJEiPecqm1lGHUqsH9tw_eFaW_N'
 EVALSECURE
 
 // replace the value by the tick timestamp
