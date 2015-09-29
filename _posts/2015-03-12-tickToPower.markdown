@@ -4,23 +4,23 @@ title:      "Data manipulation with impulse sensors"
 subtitle:   "Timestamp is as important as the sensor value"
 author:     "seb"
 ---
-<script src="//api0.cityzendata.net/widgets/quantumviz/dependencies/webcomponentsjs/webcomponents.js"></script>
-<link rel="import" href="//api0.cityzendata.net/widgets/quantumviz/czd-quantumviz.html">
+<script src="https://api0.cityzendata.net/widgets/quantumviz/dependencies/webcomponentsjs/webcomponents.js"></script>
+<link rel="import" href="https://api0.cityzendata.net/widgets/quantumviz/czd-quantumviz.html">
 
 Impulse sensors are often used to measure gas, electricity or water consumption.
 Each impulse corresponds to a quantity consumed (volume, watt per hour etc…).
 
-This type of sensors are useful for billing systems or comparing two time-slots of consumption. 
-I take as example one DIY impulse reader from an electricity meter installed into my home. 
+This type of sensors are useful for billing systems or comparing two time-slots of consumption.
+I take as example one DIY impulse reader from an electricity meter installed into my home.
 
 ![DIY impulse sensor](/img/tickToPower-01_640px.jpg)
 
-Each impulse represents 1WH consumed. For each impulse we store the timestamp related. 
+Each impulse represents 1WH consumed. For each impulse we store the timestamp related.
 The sensor also acts as an accumulator. The global trend (day by day) looks like that.
 
 All graphics in this article uses Cityzen Data visualization widget QuantumViz, a Polymer webcomponent designed for visualizing data from Cityzen Data platform.
 
-<czd-quantumviz width="500" height="400">
+<czd-quantumviz width="500" height="400" host="https://api0.cityzendata.net">
 'uQCJ4OizAsCyRbTPXapUOog4OJA57RSAHXb3XyqOO6N00h8DrYwcV9EM.goujLp5ryW3XSsUyzlPDdZHUjQwA0.B0TrGP119Xh2f7a9sYQEHjZMmctIOckeaWSjcfjKxQhvysl8NrP90ZOcE0fWUgBM0nqK_rHzeO0SJXPgFY9b.UAs0nA505M2uHpl0dva2syN0umssCoxKXlGlITaTDC8FtRV7pJKjMNuZfz6ED6UotnCabRq2EvXpINUDYqkvkh6VNbPmTP0K.NoswLaxgp6naPemqpBcs.2g8d2YpwEaRD.Hg71LYvC.9GJBjegfVjE7P0Mtj11pF.lt7pfK4.lIMs8zxiMl9SvKheo3HKfSMkQdGVYCNqgGyhDH1G3vH40YMWa0ocMrQa1zEM05ik'
 EVALSECURE
 
@@ -49,7 +49,7 @@ bucketizer.first
 In this case bucketize is usefull to reduce the number of points displayed in the browser.
 
     bucketizer.first // take the first value in the bucket
-    0 
+    0
     'P1D' DURATION  // 1 DAY bucketspan
     0
     5 ->LIST BUCKETIZE
@@ -58,8 +58,8 @@ In this case bucketize is usefull to reduce the number of points displayed in th
 
 We can easily sum the energy consumed per hours for the last 24 hours with the Cityzen Data bucketize framework.
 
-<czd-quantumviz width="500" height="400">
-'7ZWEgneRAYm9xsVHXwgc7uyZsZAICdS6NfKYdaDDZHAjhU5iLsnbKTS8r.hnbI4oUBtMyRTh6mj_FNpPctgT58vl63GvnhwHoCbQYYzrLobP1EMQB93LM3wp6OaHEd5GR0pjEulmZoomF.znhkTtXAmrNLce1dNqTkMKaKg9kn_yodP4bGmP9iGyGux_m.tpA77vVmX9SYWm7hkJj9FVBnj6zsKIAEXjfMfws.UfJnJiEs2TgFgFlGnvpjm9ms8sCJ1MVJmquEYCtnPbzLvlTzzFaI27sg8f9r3w33oeFJsb9vssXuLFDsEA0e6d_K7Pfd4wl1M5BbtUcUGxlOeHRV' 
+<czd-quantumviz width="500" height="400" host="https://api0.cityzendata.net">
+'7ZWEgneRAYm9xsVHXwgc7uyZsZAICdS6NfKYdaDDZHAjhU5iLsnbKTS8r.hnbI4oUBtMyRTh6mj_FNpPctgT58vl63GvnhwHoCbQYYzrLobP1EMQB93LM3wp6OaHEd5GR0pjEulmZoomF.znhkTtXAmrNLce1dNqTkMKaKg9kn_yodP4bGmP9iGyGux_m.tpA77vVmX9SYWm7hkJj9FVBnj6zsKIAEXjfMfws.UfJnJiEs2TgFgFlGnvpjm9ms8sCJ1MVJmquEYCtnPbzLvlTzzFaI27sg8f9r3w33oeFJsb9vssXuLFDsEA0e6d_K7Pfd4wl1M5BbtUcUGxlOeHRV'
 EVALSECURE
 
 // compute the delta between each ticks
@@ -97,7 +97,7 @@ The number of WH consumed per tick is extracted with the mapper framework
 This give you an overview of your electric consumption, but not a detailed analysis. In this electric consumption sample, a convection heater is not working properly. It starts to many times for few seconds.
 Even if you bucketize the time series per minute, it is not easy to apply analysis patterns in order to detect default.
 
-<czd-quantumviz width="500" height="400">
+<czd-quantumviz width="500" height="400" host="https://api0.cityzendata.net">
 'KHMU0wrc87BVXzItuWF.DTwls0AusWgMcD_S4bBeZcMX5C5eV70RPw9kAsKAAPIN3sXe9Ha4kHZ5XUi5o.A_FiYpo25YAzTtomoQMJ9rPgUxduDExu.Xar9INAs7xL7gFQx7n.sWJyfeMGFKrlHZ_4eWejE58snaeFrgEEMmnVo.388dp3hUWckO.McQxprIddaApc5kzdE15OFMnQNMMa43wXbWENmdwWNzJ3tIAlWcqbZgKyyygFS4fZZ1PN_1TDRD2fq6Vc4aTlbHl0FlULs_rqJUil1xI7BLwNVMn2toWDVxAK9K8.PZn77RbLaEyFBjPVOz4c'
 EVALSECURE
 
@@ -125,14 +125,14 @@ bucketizer.sum
 </czd-quantumviz>
 
 #### Einstein code ####
-Bucketiser framework is still useful for compute electric consumption per minute 
+Bucketiser framework is still useful for compute electric consumption per minute
 
     bucketizer.sum
     0 'P0H1M' DURATION 0
     5 ->LIST BUCKETIZE
 
 A better way is to work on the power curve in order to detect when the convection heater is running or not.
-We don’t have directly this information but we can rebuild it from the impulse sensor timestamp. 
+We don’t have directly this information but we can rebuild it from the impulse sensor timestamp.
 
 ## Part two : extract data from the timestamp ##
 
@@ -144,7 +144,7 @@ We can simply deduce power with the division below.
 
 Apply this division on the whole time series will produce power time series of the electric consumption.
 
-<czd-quantumviz width="500" height="400">
+<czd-quantumviz width="500" height="400" host="https://api0.cityzendata.net">
 'KHMU0wrc87BVXzItuWF.DTwls0AusWgMcD_S4bBeZcMX5C5eV70RPw9kAsKAAPIN3sXe9Ha4kHZ5XUi5o.A_FiYpo25YAzTtomoQMJ9rPgUxduDExu.Xar9INAs7xL7gFQx7n.sWJyfeMGFKrlHZ_4eWejE58snaeFrgEEMmnVo.388dp3hUWckO.McQxprIddaApc5kzdE15OFMnQNMMa43wXbWENmdwWNzJ3tIAlWcqbZgKyyygFS4fZZ1PN_1TDRD2fq6Vc4aTlbHl0FlULs_rqJUil1xI7BLwNVMn2toWDVxAK9K8.PZn77RbLaEyFBjPVOz4c'
 EVALSECURE
 
@@ -165,9 +165,9 @@ $_list 0 GET        // We get the tick
 NaN NaN NaN         // We add NaN for positions and elevation
 $_list 7 GET 0 GET  // compute the power  P= 1HOUR / deltaT
 <% 0 != %>
-<% 
+<%
 3600000000
-$_list 7 GET 0 GET 
+$_list 7 GET 0 GET
 /
 %>
 <% 0 %>
@@ -195,7 +195,7 @@ MACROMAPPER
 As you can see on the graphic above, the power curve quality is widely better than the previous graphic.
 
 #### Einstein code ####
-This part is more complicated, we have to apply different mappers. 
+This part is more complicated, we have to apply different mappers.
 Firstly, extract ticks (timestamps)
 
     mapper.tick
@@ -214,9 +214,9 @@ Thridly, use a macro mapper (custom mapper) for compute the power
       NaN NaN NaN    // No positions and elevation
       $_list 7 GET 0 GET  // compute the power  P= 1HOUR / deltaT
       <% 0 != %>
-      <% 
+      <%
          3600000000
-         $_list 7 GET 0 GET 
+         $_list 7 GET 0 GET
          /
       %>
       <% 0 %>
