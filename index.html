@@ -20,17 +20,17 @@ header-img: "img/home-bg.jpg"
         {% if post.author %}
           {% assign author = site.authors[post.author] %}
           <span class="meta">
-            Posted by 
-            <a class="twitter" href="https://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a> 
+            Posted by
+            <a class="twitter" href="https://twitter.com/{{ author.twitter }}">{{ author.display_name }}</a>
             {% if post.author2 %}
               {% assign author2 = site.authors[post.author2] %}
-              and <a class="twitter" href="https://twitter.com/{{ author2.twitter }}">{{ author2.display_name }}</a> 
-            {% endif %}             
+              and <a class="twitter" href="https://twitter.com/{{ author2.twitter }}">{{ author2.display_name }}</a>
+            {% endif %}
             on {{ post.date | date: "%B %-d, %Y" }}
           </span>
         {% else %}
            <span class="meta">Posted on {{ post.date | date: "%B %-d, %Y" }}</span>
-        {% endif %}  
+        {% endif %}
     </div>
     <hr>
   {% endunless %}
@@ -41,12 +41,12 @@ header-img: "img/home-bg.jpg"
 <ul class="pager">
     {% if paginator.previous_page %}
     <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.url | replace: '//', '/' }}">&larr; Newer Posts</a>
+        <a href="{{ paginator.previous_page_path  }}">&larr; Newer Posts</a>
     </li>
     {% endif %}
     {% if paginator.next_page %}
     <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.url | replace: '//', '/' }}">Older Posts &rarr;</a>
+        <a href="{{ paginator.next_page_path  }}">Older Posts &rarr;</a>
     </li>
     {% endif %}
 </ul>
