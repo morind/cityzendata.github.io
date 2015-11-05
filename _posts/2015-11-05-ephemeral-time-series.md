@@ -14,7 +14,7 @@ This nesting induces multiple levels of metrics. The lowest level is that of the
 
 It is legitimate to want to collect metrics at all those levels, but given the dynamic nature of the containers this can rapidly lead to a situation where you have to handle many time series which are short lived. Those short lived time series are usually associated with a random container id which is generated when an instance is spawned. While it makes perfect sense to store the container id in a label identifying a time series, one can question the manageability of all those series in the mid to long term.
 
-Most of the <a href="https://en.wikipedia.org/wiki/Time_series_database">time series databases</a> out there will suffer when they have to manage millions or billions of metrics, and the usefulness of keeping so many short lived time series is also questionable. 
+Most of the <a href="https://en.wikipedia.org/wiki/Time_series_database">time series databases</a> out there will suffer when they have to manage millions or billions of metrics, and the usefulness of keeping so many short lived time series is also questionable.
 
 That is the reason why we give our customers a set of rules to follow so they can benefit from the short term value of ephemeral time series while not clogging their overall time series corpus.
 
@@ -22,7 +22,7 @@ That is the reason why we give our customers a set of rules to follow so they ca
 
 Those rules are mentioned below, feel free to react to them on <a href="https://twitter.com/CityzenData">Twitter</a>, we'll be happy to discuss them:
 
-* Be wise when you associate ephemeral identifiers (such as container id) to time series
+#### Be wise when you associate ephemeral identifiers (such as container id) to time series ####
 
 The growing popularity of systems such as <a href="">docker</a> has had the side effect of making random container ids appear in time series labels. While this makes perfect sense if the time series you are tracking are strictly related to the given container, very often we see such labels being associated with time series which have a meaning well beyong the container in which they operate.
 
@@ -30,14 +30,14 @@ Our advice is therefore to associate the ephemeral container id only to the metr
 
 By following this advice you will be able to manipulate those metrics across container executions.
 
-* Associate a 'ttl' label to those ephemeral time series
+#### Associate a 'ttl' label to those ephemeral time series ####
 
 Time series associated with a given container id will generally have a very low value after some time, so our advice is to label them with a 'ttl' so the time series which were created around a certain time can be easily identified.
 
 By adding a label value of 'YYYY-MM-DD' which is the date at which the container was started for example you can easily find all those time series which no longer provide much value.
 
 
-* Purge your ephemeral time series on a regular basis
+#### Purge your ephemeral time series on a regular basis ####
 
 As stated in the introduction, the idea is to remove from your corpus the time series you no longer need. This covers the datapoints themselves but more importantly the metadata describing the time series, so for example retention policies alone do not solve the problem as they will usually ony suppress the datapoints which are older than a threshold.
 
