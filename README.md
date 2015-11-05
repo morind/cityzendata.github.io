@@ -20,11 +20,7 @@ Using ruby gems:
 gem install jekyll
 ```
 
-In debian/ubuntu:
-
-```text
-sudo apt-get install jekyll
-```
+*Note: the version of Jekyll on Ubuntu repositories **isn't up todate** and shouldn't be used*
 
 
 ### Development mode
@@ -32,7 +28,21 @@ sudo apt-get install jekyll
 To serve the blog in preview mode, use:
 
 ```text
-jekyll serve --watch
+jekyll serve
+```
+The preview mode automatically updates after any modification.
+
+
+To build the static version of the blog, use:
+
+```text
+jekyll build
+```
+
+If you want it to rebuild the static site after each modification, add the `--watch`flag:
+
+```text
+jekyll build --watch
 ```
 
 In *watch* mode, Jekyll will scan the source file and re-generate the blog when files changes.    
@@ -70,10 +80,10 @@ Images should be placed on  a directory inside `img`, following this structure:
 
 ```text
 ──img
-  └──YY 
-     └──MM
-        ├── img01.jpg
-        └── img02.jpg
+   └──YY 
+       └──MM
+           ├── img01.jpg
+           └── img02.jpg
 ```
 
 ### Publish your post
@@ -82,3 +92,15 @@ As usual, you should fork the [blog repository](https://bitbucket.org/cityzendat
 push to your fork and do a pull request.
 
 
+### Working with drafts ###
+
+
+Drafts are posts without a date. They’re posts you’re still working on and don’t want to publish yet. To create a new draft, simply put it into the 
+`_drafts` folder, without prefixing its filename with a date:
+
+```text
+──_drafts/
+   └──a-draft-post.md
+```
+To preview your drafts, simply run `jekyll serve` or `jekyll build` with the `--drafts` switch. Each draft post will be assigned the value 
+modification time of the draft file for its date, and thus you will see currently edited drafts as the latest posts.
