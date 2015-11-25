@@ -6,7 +6,7 @@ author:     "lpr"
 header-img: "img/"
 ---
 <script src="https://cdn.cityzendata.net/quantumviz/webcomponentsjs/webcomponents.js"></script>
-<link   rel="import" href=" https://cdn.cityzendata.net/quantumviz/czd-quantumviz/czd-quantumviz.html">
+<link   rel="import" href="https://cdn.cityzendata.net/quantumviz/czd-quantumviz/czd-quantumviz.html">
 
 The availability of acceleration sensors creates exciting new opportunities for data mining and predictive analytics applications.
 In this post, we consider data from accelerometers to perform activity recognition. And thanks to this learning we want to identify the physical activity that a user is performing. Several possible applications ensue from this: activity reports, calories computation, alert sedentary, match music with the activity...In brief, a lot of applications to promote and encourage health and fitness.

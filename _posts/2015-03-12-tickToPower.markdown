@@ -6,7 +6,7 @@ author:     "seb"
 ---
 
 <script src="https://cdn.cityzendata.net/quantumviz/webcomponentsjs/webcomponents.js"></script>
-<link   rel="import" href=" https://cdn.cityzendata.net/quantumviz/czd-quantumviz/czd-quantumviz.html">
+<link   rel="import" href="https://cdn.cityzendata.net/quantumviz/czd-quantumviz/czd-quantumviz.html">
 
 Impulse sensors are often used to measure gas, electricity or water consumption.
 Each impulse corresponds to a quantity consumed (volume, watt per hour etc…).
