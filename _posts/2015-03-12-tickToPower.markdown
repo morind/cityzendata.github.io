@@ -4,8 +4,9 @@ title:      "Data manipulation with impulse sensors"
 subtitle:   "Timestamp is as important as the sensor value"
 author:     "seb"
 ---
-<script src="https://api0.cityzendata.net/widgets/quantumviz/dependencies/webcomponentsjs/webcomponents.js"></script>
-<link rel="import" href="https://api0.cityzendata.net/widgets/quantumviz/czd-quantumviz.html">
+
+<script src="https://cdn.cityzendata.net/quantumviz/webcomponentsjs/webcomponents.js"></script>
+<link   rel="import" href="https://cdn.cityzendata.net/quantumviz/czd-quantumviz/czd-quantumviz.html">
 
 Impulse sensors are often used to measure gas, electricity or water consumption.
 Each impulse corresponds to a quantity consumed (volume, watt per hour etc…).

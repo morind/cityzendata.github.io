@@ -5,8 +5,8 @@ subtitle:   "Recognize user's activity with data from an accelerometer"
 author:     "lpr"
 header-img: "img/"
 ---
-<script src="//api0.cityzendata.net/widgets/quantumviz/dependencies/webcomponentsjs/webcomponents.js"></script>
-<link rel="import" href="//api0.cityzendata.net/widgets/quantumviz/czd-quantumviz.html">
+<script src="https://cdn.cityzendata.net/quantumviz/webcomponentsjs/webcomponents.js"></script>
+<link   rel="import" href="https://cdn.cityzendata.net/quantumviz/czd-quantumviz/czd-quantumviz.html">
 
 The availability of acceleration sensors creates exciting new opportunities for data mining and predictive analytics applications.
 In this post, we consider data from accelerometers to perform activity recognition. And thanks to this learning we want to identify the physical activity that a user is performing. Several possible applications ensue from this: activity reports, calories computation, alert sedentary, match music with the activity...In brief, a lot of applications to promote and encourage health and fitness.
@@ -52,7 +52,7 @@ The understanding of these graphics are essential to notice patterns for each ac
 For example we observe repeating waves and peaks for the following repetitive activities walking, jogging, ascending stairs and descending stairs.
 We also observe no periodic behavior for more static activities like standing or sitting, but different amplitudes.
 
-The data sets provide data from 37 different users. And each user perform different activities several time. 
+The data sets provide data from 37 different users. And each user perform different activities several time.
 So I have defined several windows for each user and each activity to retrieve more samples.
 
 Just below, an example of GTS using our Cityzen Data widget.
@@ -79,7 +79,7 @@ After several tests with different features combination, the ones that I have ch
 	<li>Average absolute difference (for each axis)</li>
 	<li>Average resultant acceleration (1/n * sum [√(x² + y² + z²)])</li>
 	<li>Average time between peaks (max) (for each axis)</li>
-</ul> 
+</ul>
 
 Now let’s use Einstein to compute all of these features!
 
@@ -114,7 +114,7 @@ Let’s use Einstein to compute all of these features!
   $data // call the data
 
   false               // Bessel correction
-  MUSIGMA 
+  MUSIGMA
   'standev_x' STORE   // store the standart deviation
   'mean_x' STORE      // store the mean
 </code></pre>
@@ -129,14 +129,14 @@ Let’s use Einstein to compute all of these features!
   // compute the mean
   bucketizer.mean
   0 0 1           // lastbucket bucketspan bucketcount
-  5 ->LIST 
-  BUCKETIZE 
+  5 ->LIST
+  BUCKETIZE
   VALUES LIST-> DROP LIST-> DROP  // As BUCKETIZE returns a GTS, extract the value of the GTS
   'mean' STORE
 
   // Here we do: x - mean for each point x
   -1 $mean *      // multiply by -1
-  mapper.add      // and add this value 
+  mapper.add      // and add this value
   0 0 0           // sliding window of 1 (0 pre and 0 post), no options
   5 ->LIST
   MAP
@@ -151,8 +151,8 @@ Let’s use Einstein to compute all of these features!
   // where n is the lenth of the time series
   bucketizer.mean
   0 0 1
-  5 ->LIST 
-  BUCKETIZE 
+  5 ->LIST
+  BUCKETIZE
   // store the result
   VALUES LIST-> DROP LIST-> DROP 'avg_abs_x' STORE    // store the result
 </code></pre>
@@ -198,7 +198,7 @@ Let’s use Einstein to compute all of these features!
   DUP
 
   // Now let define the maximum
-  bucketizer.max 
+  bucketizer.max
   0 0 1   // lastbucket bucketspan  bucketcount
   5 ->LIST
   BUCKETIZE // return a GTS
@@ -214,7 +214,7 @@ Let’s use Einstein to compute all of these features!
   MAP
 
   // just return the tick of each datapoint
-  mapper.tick 
+  mapper.tick
   0 0 0              
   5 ->LIST
   MAP
@@ -283,22 +283,22 @@ More about [Random Forest](https://spark.apache.org/docs/1.3.0/mllib-ensembles.h
   	int maxBins = 100;
 
   	// create model  
-  	RandomForestModel model =  RandomForest.trainClassifier(trainingData, 
-                                                            numClasses, 
-                                                            categoricalFeaturesInfo, 
-                                                            numTrees, 
-                                                            featureSubsetStrategy, 
-                                                            impurity, 
-                                                            maxDepth, 
-                                                            maxBins, 
+  	RandomForestModel model =  RandomForest.trainClassifier(trainingData,
+                                                            numClasses,
+                                                            categoricalFeaturesInfo,
+                                                            numTrees,
+                                                            featureSubsetStrategy,
+                                                            impurity,
+                                                            maxDepth,
+                                                            maxBins,
                                                             12345);
 
   	// Evaluate model on test instances and compute test error
-  	JavaPairRDD<Double, Double> predictionAndLabel = 
+  	JavaPairRDD<Double, Double> predictionAndLabel =
       testData.mapToPair(p -> new Tuple2<Double, Double>(model.predict(p.features()), p.label()));
 
   	// the error
-  	Double testErr = 
+  	Double testErr =
       1.0 * predictionAndLabel.filter(pl -> !pl._1().equals(pl._2())).count() / testData.count();
 </code></pre>
 
@@ -318,19 +318,19 @@ More about [Decision Tree](https://spark.apache.org/docs/1.3.0/mllib-decision-tr
   	int maxBins = 100;
 
   	// create model
-  	final DecisionTreeModel model =  DecisionTree.trainClassifier(trainingData, 
-                                                                  numClasses, 
-                                                                  categoricalFeaturesInfo, 
-                                                                  impurity, 
-                                                                  maxDepth, 
+  	final DecisionTreeModel model =  DecisionTree.trainClassifier(trainingData,
+                                                                  numClasses,
+                                                                  categoricalFeaturesInfo,
+                                                                  impurity,
+                                                                  maxDepth,
                                                                   maxBins);
 
   	// Evaluate model on training instances and compute training error
-  	JavaPairRDD<Double, Double> predictionAndLabel = 
+  	JavaPairRDD<Double, Double> predictionAndLabel =
       testData.mapToPair(p -> new Tuple2<>(model.predict(p.features()), p.label()));
 
   	// the error
-  	Double testErrDT = 
+  	Double testErrDT =
       1.0 * predictionAndLabel.filter(pl -> !pl._1().equals(pl._2())).count() / testData.count();
 </code></pre>
 
@@ -346,7 +346,7 @@ More about [Multinomial Logistic Regression](https://spark.apache.org/docs/1.3.0
 										      .setNumClasses(6)
 										      .run(trainingData.rdd());
 
-  	JavaRDD<Tuple2<Object, Object>> predictionAndLabel = 
+  	JavaRDD<Tuple2<Object, Object>> predictionAndLabel =
       testData.map(p -> new Tuple2<>(model.predict(p.features()), p.label()));
 
   	// Evaluate metrics
