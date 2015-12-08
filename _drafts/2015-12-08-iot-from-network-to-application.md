@@ -22,7 +22,7 @@ We are constantly adding support for new networks to make life easier for our cu
 
 This is a partial list of companies we work with:
 
-- <a href="http://www.actility.com/">Actility</a>
+- <a href="http://www.actility.com/">Actility ThingPark</a>
 - <a href="http://kerlink.fr/">Kerlink</a>
 - <a href="http://ackl.io/">Ackl.io</a>
 
