@@ -22,9 +22,9 @@ We are constantly adding support for new networks to make life easier for our cu
 
 This is a partial list of companies we work with:
 
-- Actility
-- Kerlink
-- Ackl.io
+- <a href="http://www.actility.com/">Actility</a>
+- <a href="http://kerlink.fr/">Kerlink</a>
+- <a href="http://ackl.io/">Ackl.io</a>
 
 Beyond LoRa we are also compatible with the SigFox IoT network.
 
